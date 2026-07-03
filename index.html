@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Cinco verdades que los hoteleros rentables aplican desde el día uno · Host & Feast</title>
+<meta name="description" content="Guía interactiva y gratuita para hoteleros independientes en México. Calcula cuánto le regalas a las OTAs, tu tarifa mínima y tu camino al canal directo." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0C2233; --navy-deep:#081521; --navy-card:#11263a;
+    --cream:#F4F1EA; --paper:#FBFAF7;
+    --gold:#C8A049; --gold-bright:#E8C97A; --gold-soft:#efe2c4;
+    --ink:#14202b; --ink-soft:#41505d; --muted:#8a95a0;
+    --line:#e4ddcd; --line-navy:#22384c;
+    --red:#8f4a41;
+    --maxw:1080px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',system-ui,sans-serif;
+    background:var(--paper); color:var(--ink);
+    line-height:1.62; -webkit-font-smoothing:antialiased;
+    font-size:17px;
+  }
+  h1,h2,h3,.serif{font-family:'Fraunces',Georgia,serif;font-weight:600;line-height:1.1;letter-spacing:-.01em}
+  .mono{font-family:'JetBrains Mono',monospace}
+  a{color:inherit}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase}
+
+  /* ---------- HERO ---------- */
+  .hero{background:var(--navy);color:var(--cream);position:relative;overflow:hidden;padding:38px 0 68px}
+  .hero::before{content:"";position:absolute;inset:0;
+    background:radial-gradient(120% 90% at 85% -10%, rgba(200,160,73,.16), transparent 55%),
+               radial-gradient(90% 70% at -10% 110%, rgba(200,160,73,.07), transparent 60%);
+    pointer-events:none}
+  .topbar{display:flex;align-items:center;justify-content:space-between;position:relative;z-index:2}
+  .brand{font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:.28em;font-size:13px;color:var(--gold-bright)}
+  .brand b{color:var(--cream);font-weight:700}
+  .topbar .free{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;color:var(--gold);text-transform:uppercase;border:1px solid var(--line-navy);padding:6px 12px;border-radius:999px}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center;margin-top:46px;position:relative;z-index:2}
+  .hero-kicker{color:var(--gold);margin-bottom:20px}
+  .hero h1{font-size:clamp(34px,5vw,58px);color:#fff}
+  .hero h1 em{font-style:italic;font-weight:500;color:var(--gold-bright)}
+  .hero p.lead{margin-top:22px;color:#c3cdd6;font-size:18px;max-width:34ch}
+  .hero .byline{margin-top:26px;font-family:'Fraunces',serif;font-style:italic;color:var(--gold);font-size:15px}
+  .scrollcue{margin-top:34px;display:inline-flex;align-items:center;gap:10px;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#9fb0bd;text-decoration:none}
+  .scrollcue span.arrow{display:inline-block;transition:transform .3s}
+  .scrollcue:hover span.arrow{transform:translateY(3px)}
+
+  /* ---------- CALCULATOR CARDS ---------- */
+  .calc{background:var(--navy-card);border:1px solid var(--line-navy);border-radius:14px;padding:26px;box-shadow:0 24px 60px -30px rgba(0,0,0,.7)}
+  .calc .calc-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:20px}
+  .calc .calc-head .eyebrow{color:var(--gold)}
+  .calc .calc-head .free-pill{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;color:var(--navy);background:var(--gold);padding:4px 9px;border-radius:999px;text-transform:uppercase;font-weight:700}
+  .field{margin-bottom:14px}
+  .field label{display:block;font-size:12.5px;color:#a9b6c1;margin-bottom:6px;font-weight:500}
+  .field input{width:100%;background:var(--navy-deep);border:1px solid var(--line-navy);color:#fff;
+    border-radius:8px;padding:11px 13px;font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:500;outline:none;transition:border-color .18s,box-shadow .18s}
+  .field input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(200,160,73,.18)}
+  .field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .readouts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
+  .readout{background:var(--navy-deep);border:1px solid var(--line-navy);border-radius:9px;padding:13px 15px}
+  .readout .rlabel{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;color:var(--muted);text-transform:uppercase;margin-bottom:7px}
+  .readout .rval{font-family:'JetBrains Mono',monospace;font-size:20px;font-weight:700;color:var(--gold-bright)}
+  .readout.big{grid-column:1/-1;background:linear-gradient(180deg,rgba(200,160,73,.14),rgba(200,160,73,.04));border-color:rgba(200,160,73,.4)}
+  .readout.big .rval{font-size:27px;color:#fff}
+  .readout .rsub{font-size:11px;color:var(--muted);margin-top:4px}
+
+  /* ---------- SECTIONS ---------- */
+  section.band{padding:76px 0}
+  .band.light{background:var(--paper)}
+  .band.cream{background:var(--cream)}
+  .lede-quote{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(21px,2.6vw,27px);line-height:1.4;color:var(--ink);max-width:24ch;font-weight:500}
+  .lede-quote::before{content:"“";color:var(--gold);font-size:1.3em;line-height:0;margin-right:.05em}
+
+  .intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+  .intro-grid p{color:var(--ink-soft);margin-bottom:16px}
+  .intro-grid p:last-child{margin-bottom:0}
+  .intro-grid strong{color:var(--ink)}
+
+  .section-head{max-width:640px;margin-bottom:44px}
+  .section-head .eyebrow{color:var(--gold);display:block;margin-bottom:14px}
+  .section-head h2{font-size:clamp(26px,3.4vw,38px)}
+  .section-head p{color:var(--ink-soft);margin-top:16px}
+
+  /* pillar */
+  .pillar{border-top:1px solid var(--line);padding:46px 0;display:grid;grid-template-columns:76px 1fr;gap:20px}
+  .pillar:first-of-type{border-top:none}
+  .pillar .num{font-family:'Fraunces',serif;font-size:44px;color:var(--gold);line-height:.9;font-weight:600}
+  .pillar h3{font-size:clamp(21px,2.5vw,27px);margin-bottom:6px}
+  .pillar .tag{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;color:var(--muted);text-transform:uppercase;margin-bottom:14px}
+  .pillar p{color:var(--ink-soft);margin-bottom:14px}
+  .pillar p strong{color:var(--ink)}
+  .pillar ul{list-style:none;margin:6px 0 14px}
+  .pillar li{position:relative;padding-left:22px;color:var(--ink-soft);margin-bottom:9px}
+  .pillar li::before{content:"›";position:absolute;left:0;color:var(--gold);font-weight:700}
+  .callout{background:var(--cream);border-left:3px solid var(--gold);border-radius:0 8px 8px 0;padding:16px 20px;margin:6px 0 4px;font-size:15px;color:var(--ink-soft)}
+  .callout b{color:var(--ink)}
+  .band.light .callout{background:#f3efe4}
+
+  /* light calculator (on cream/paper) */
+  .calc.light{background:#fff;border:1px solid var(--line);box-shadow:0 20px 50px -34px rgba(20,32,43,.4);margin-top:22px}
+  .calc.light .calc-head .eyebrow{color:var(--gold)}
+  .calc.light .field label{color:var(--ink-soft)}
+  .calc.light .field input{background:var(--paper);border:1px solid var(--line);color:var(--ink)}
+  .calc.light .field input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(200,160,73,.16)}
+  .calc.light .readout{background:var(--paper);border:1px solid var(--line)}
+  .calc.light .readout .rval{color:#9a7420}
+  .calc.light .readout.big{background:var(--navy);border-color:var(--navy)}
+  .calc.light .readout.big .rlabel{color:#9fb0bd}
+  .calc.light .readout.big .rval{color:#fff}
+  .calc.light .readout.big .rsub{color:#9fb0bd}
+
+  .formula{background:var(--navy);color:#cfd8e0;border-radius:10px;padding:18px 20px;font-family:'JetBrains Mono',monospace;font-size:13.5px;line-height:1.9;margin:8px 0 4px;overflow-x:auto}
+  .formula .g{color:var(--gold-bright)}
+
+  /* free tools */
+  .tools-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:8px}
+  .tool{background:var(--navy);color:var(--cream);border-radius:14px;padding:28px;display:flex;flex-direction:column}
+  .tool .eyebrow{color:var(--gold);margin-bottom:14px}
+  .tool h3{color:#fff;font-size:22px;margin-bottom:10px}
+  .tool p{color:#b7c2cc;font-size:15px;flex:1}
+  .tool .btn{margin-top:20px;align-self:flex-start}
+
+  /* buttons */
+  .btn{display:inline-flex;align-items:center;gap:10px;font-family:'JetBrains Mono',monospace;font-weight:700;
+    font-size:13px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;
+    padding:14px 24px;border-radius:9px;cursor:pointer;border:none;transition:transform .16s,box-shadow .16s,background .16s}
+  .btn-gold{background:var(--gold);color:var(--navy)}
+  .btn-gold:hover{background:var(--gold-bright);transform:translateY(-2px);box-shadow:0 12px 26px -12px rgba(200,160,73,.7)}
+  .btn-ghost{background:transparent;color:var(--cream);border:1px solid var(--line-navy)}
+  .btn-ghost:hover{border-color:var(--gold);color:#fff}
+  .btn .arrow{transition:transform .2s}
+  .btn:hover .arrow{transform:translateX(3px)}
+
+  /* KIT CTA */
+  .kit{background:var(--navy);color:var(--cream);padding:82px 0}
+  .kit .eyebrow{color:var(--gold);display:block;margin-bottom:16px}
+  .kit h2{font-size:clamp(28px,3.8vw,44px);color:#fff;max-width:18ch}
+  .kit h2 em{font-style:italic;color:var(--gold-bright);font-weight:500}
+  .kit .kit-lead{color:#b7c2cc;margin-top:18px;max-width:52ch}
+  .kit-list{display:grid;grid-template-columns:1fr 1fr;gap:14px 40px;margin:34px 0 30px;max-width:760px}
+  .kit-list .ki{display:flex;gap:12px;align-items:flex-start;padding:2px 0}
+  .kit-list .ki .kt{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:var(--gold);border:1px solid var(--line-navy);border-radius:5px;padding:3px 7px;white-space:nowrap;margin-top:2px}
+  .kit-list .ki .kd{font-size:14.5px;color:#cbd4dc}
+  .kit-list .ki .kd b{color:#fff;font-weight:600}
+  .kit-cta-row{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+  .kit .note{font-size:13px;color:var(--muted);margin-top:18px;font-family:'JetBrains Mono',monospace;letter-spacing:.03em}
+
+  /* email capture */
+  .capture{background:var(--cream);border:1px solid var(--line);border-radius:14px;padding:32px;display:grid;grid-template-columns:1.2fr 1fr;gap:30px;align-items:center;margin-top:10px}
+  .capture h3{font-size:23px;margin-bottom:8px}
+  .capture p{color:var(--ink-soft);font-size:15px}
+  .capture form{display:flex;flex-direction:column;gap:10px}
+  .capture input{width:100%;background:#fff;border:1px solid var(--line);border-radius:9px;padding:13px 15px;font-family:inherit;font-size:15px;outline:none}
+  .capture input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(200,160,73,.16)}
+  .capture .msg{font-size:13px;color:var(--ink-soft);min-height:16px}
+
+  /* footer */
+  footer{background:var(--navy-deep);color:#9fb0bd;padding:40px 0}
+  .foot-grid{display:flex;flex-wrap:wrap;gap:22px;justify-content:space-between;align-items:center}
+  .foot-links{display:flex;gap:22px;flex-wrap:wrap}
+  .foot-links a{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.06em;text-decoration:none;color:#b7c2cc;transition:color .16s}
+  .foot-links a:hover{color:var(--gold-bright)}
+  .foot-brand{font-family:'JetBrains Mono',monospace;letter-spacing:.24em;font-size:12px;color:var(--gold)}
+  .foot-brand b{color:var(--cream)}
+
+  /* reveal animation */
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  @media (max-width:860px){
+    body{font-size:16px}
+    .hero-grid,.intro-grid,.capture{grid-template-columns:1fr;gap:34px}
+    .tools-grid,.kit-list{grid-template-columns:1fr}
+    .pillar{grid-template-columns:1fr;gap:6px}
+    .pillar .num{font-size:36px}
+    section.band{padding:56px 0}
+    .capture{padding:24px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .reveal{opacity:1;transform:none;transition:none}
+    .btn:hover{transform:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== HERO ===================== -->
+<header class="hero">
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand">HOST<b> | </b>FEAST</div>
+      <div class="free">Guía gratuita · para la comunidad</div>
+    </div>
+
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow hero-kicker">Guía interactiva · hotelería independiente</div>
+        <h1>Lo que nadie te enseña cuando <em>tienes un hotel</em></h1>
+        <p class="lead">Cinco verdades que los hoteleros rentables aplican desde el día uno — con calculadoras que funcionan de verdad, no promesas.</p>
+        <div class="byline">por Luis Santibáñez</div>
+        <a href="#guia" class="scrollcue">Empezar por tus números <span class="arrow">↓</span></a>
+      </div>
+
+      <!-- HERO TOOL: OTA leak -->
+      <div class="calc reveal" id="ota">
+        <div class="calc-head">
+          <div class="eyebrow">Calculadora en vivo</div>
+          <div class="free-pill">Gratis</div>
+        </div>
+        <div style="font-family:'Fraunces',serif;font-size:19px;color:#fff;margin-bottom:16px;line-height:1.3">¿Cuánto le regalas a las OTAs?</div>
+        <div class="field-row">
+          <div class="field"><label>Habitaciones</label><input id="ota_rooms" type="number" inputmode="numeric" value="10"></div>
+          <div class="field"><label>ADR (MXN/noche)</label><input id="ota_adr" type="number" inputmode="numeric" value="1200"></div>
+        </div>
+        <div class="field-row">
+          <div class="field"><label>Ocupación (%)</label><input id="ota_occ" type="number" inputmode="numeric" value="65"></div>
+          <div class="field"><label>Reservas vía OTA (%)</label><input id="ota_share" type="number" inputmode="numeric" value="70"></div>
+        </div>
+        <div class="field"><label>Comisión + IVA (%)</label><input id="ota_comm" type="number" inputmode="numeric" value="21"></div>
+        <div class="readouts">
+          <div class="readout"><div class="rlabel">Comisión / mes</div><div class="rval" id="ota_month">—</div></div>
+          <div class="readout"><div class="rlabel">Comisión / año</div><div class="rval" id="ota_year">—</div></div>
+          <div class="readout big"><div class="rlabel">Recuperable moviendo la mitad al canal directo</div><div class="rval" id="ota_save">—</div><div class="rsub">estimado anual, descontando 3.5% de pasarela de pago</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== INTRO ===================== -->
+<section class="band light" id="guia">
+  <div class="wrap intro-grid reveal">
+    <div>
+      <p class="lede-quote">El primer problema no es que tu hotel no llene — es que no sabes exactamente cuánto te cuesta llenarlo.</p>
+    </div>
+    <div>
+      <p>Nadie te explicó que tener un hotel boutique en México significa pagar entre el 18% y el 25% de cada reserva a una plataforma que ni siquiera conoce a tus huéspedes. Nadie te dijo que sin un sistema de precios claro, dejas dinero sobre la mesa cada temporada. Y nadie te entregó un manual de operación el día que abriste.</p>
+      <p><strong>Eso no es un fracaso tuyo. Es la norma en la hospitalidad independiente.</strong></p>
+      <p>Esta guía existe para cambiar eso. No te voy a vender el sueño de un hotel que se administra solo. Te voy a mostrar cinco puntos concretos donde la mayoría pierde dinero — y herramientas que puedes usar ahora mismo para cada uno.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PILARES ===================== -->
+<section class="band">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Las cinco verdades</span>
+      <h2>Nada de teoría. Cada punto trae algo que puedes aplicar hoy.</h2>
+    </div>
+
+    <!-- P1 -->
+    <div class="pillar reveal">
+      <div class="num">01</div>
+      <div>
+        <div class="tag">Métricas · lo que sí importa</div>
+        <h3>No puedes mejorar lo que no mides</h3>
+        <p>La mayoría sabe cuánto cobra por noche y más o menos cuánto llega a fin de mes. Pero sin tres números clave, tomas decisiones de precio e inversión a ciegas.</p>
+        <ul>
+          <li><strong>ADR</strong> — lo que <em>realmente</em> cobraste por noche vendida, después de descuentos, upgrades y cortesías. No el precio que publicaste.</li>
+          <li><strong>RevPAR</strong> — tu termómetro real: mide el ingreso sobre <em>todas</em> tus habitaciones, no solo las vendidas.</li>
+          <li><strong>GOP</strong> — te dice si el negocio es rentable o solo está ocupado.</li>
+        </ul>
+        <div class="callout"><b>Regla rápida:</b> dos hoteles con la misma ocupación pueden tener rentabilidad opuesta. El que gana es el que conoce su RevPAR y su GOP, no el que llena más.</div>
+        <div class="callout" style="margin-top:12px"><b>Herramienta gratuita:</b> calcula tus tres métricas en menos de 5 minutos con <a href="https://revdiagnostic.host-feast.online" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:underline">RevDiagnostic →</a></div>
+      </div>
+    </div>
+
+    <!-- P2 -->
+    <div class="pillar reveal">
+      <div class="num">02</div>
+      <div>
+        <div class="tag">Canal directo · el 20% que regalas</div>
+        <h3>El 20% que le regalas a Booking cada mes</h3>
+        <p>El canal directo no significa abandonar Booking. Significa recuperar una parte de esas reservas — y el margen completo de cada una. El camino tiene tres pasos, y el orden importa:</p>
+        <ul>
+          <li><strong>Infraestructura</strong> — PMS + channel manager + motor de reservas + pasarela. Si ya gestionas OTAs, la mitad ya la tienes.</li>
+          <li><strong>Presencia</strong> — Google Business Profile completo y Google Hotel Ads para aparecer junto a las OTAs, con paridad tarifaria estricta.</li>
+          <li><strong>Cierre</strong> — WhatsApp Business (98% de apertura en México). Quien te escribe ya salió de la OTA: responde en menos de 10 minutos y cierra.</li>
+        </ul>
+        <div class="callout"><b>El truco del channel manager que pocos aplican:</b> carga las tarifas de OTAs 10-15% por encima de tu tarifa web directa. Tu web es la más barata, cumples paridad, y el huésped que compara tiene incentivo real para reservarte directo.</div>
+        <p style="font-size:14px;color:var(--muted);margin-top:8px">↑ Usa la calculadora de arriba para ver tu número exacto de comisiones.</p>
+      </div>
+    </div>
+
+    <!-- P3 -->
+    <div class="pillar reveal">
+      <div class="num">03</div>
+      <div>
+        <div class="tag">Precios · como las cadenas grandes</div>
+        <h3>La estrategia de precios que usa el Marriott</h3>
+        <p>El Marriott no cobra lo mismo un martes de febrero que el viernes de Semana Santa. Eso es <strong>revenue management dinámico</strong> — y durante años fue exclusivo de cadenas grandes. Ya no lo es.</p>
+        <p>El punto de partida es tu <strong>BAR (Best Available Rate)</strong>: el precio base más bajo sobre el que construyes todo lo demás. Pero ese número es tu <em>piso</em>, no tu precio de salida.</p>
+        <div class="formula">
+          <span class="g">Costos fijos ÷ habitaciones ÷ días</span> = costo por habitación/noche<br>
+          <span class="g">Costo/noche + margen mínimo</span> = BAR mínimo
+        </div>
+        <div class="callout" style="margin-top:16px"><b>Tus costos bajos no son tu techo — son tu ventaja.</b> El precio lo define el mercado (tu compset, la demanda, tu experiencia), no tu estructura de gastos.</div>
+
+        <!-- P3 TOOL -->
+        <div class="calc light reveal" id="bar">
+          <div class="calc-head"><div class="eyebrow">Calculadora de BAR mínimo</div><div class="free-pill" style="background:var(--gold);color:var(--navy)">Gratis</div></div>
+          <div class="field-row">
+            <div class="field"><label>Costos fijos mensuales (MXN)</label><input id="b_fixed" type="number" inputmode="numeric" value="90000"></div>
+            <div class="field"><label>Habitaciones</label><input id="b_rooms" type="number" inputmode="numeric" value="10"></div>
+          </div>
+          <div class="field-row">
+            <div class="field"><label>Días del mes</label><input id="b_days" type="number" inputmode="numeric" value="30"></div>
+            <div class="field"><label>Margen mínimo (%)</label><input id="b_margin" type="number" inputmode="numeric" value="45"></div>
+          </div>
+          <div class="readouts">
+            <div class="readout"><div class="rlabel">Costo por noche</div><div class="rval" id="b_cost">—</div></div>
+            <div class="readout big"><div class="rlabel">Tu BAR mínimo (piso)</div><div class="rval" id="b_bar">—</div><div class="rsub">nunca vendas por debajo de esto — súbelo según demanda y competencia</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- P4 -->
+    <div class="pillar reveal">
+      <div class="num">04</div>
+      <div>
+        <div class="tag">Operación · que funcione sin ti</div>
+        <h3>El hábito que hace que tu hotel funcione sin que estés tú</h3>
+        <p>Un manual de operaciones no es un documento que se guarda y nadie vuelve a abrir. El que funciona es el que genera <strong>hábitos</strong>: que tu equipo repita el proceso correcto tantas veces que deja de ser instrucción y se vuelve su forma natural de trabajar.</p>
+        <ul>
+          <li><strong>Procedimiento escrito</strong> en pasos cortos y concretos — acciones específicas con un responsable claro, no párrafos.</li>
+          <li><strong>Práctica repetida con supervisión</strong> hasta que el proceso fluye sin que nadie tenga que pensarlo.</li>
+          <li><strong>Lista de verificación</strong> que el colaborador completa cada vez — no para controlarlo, sino para que él confirme que no se saltó ningún paso.</li>
+        </ul>
+        <div class="callout"><b>Por dónde empezar:</b> identifica los tres procesos que más te interrumpen cuando no estás — casi siempre son check-in, manejo de quejas y cierre de turno. Documenta solo uno esta semana, en pasos de una oración. Eso ya es un SOP funcional.</div>
+        
+        <div style="margin-top:20px;background:var(--cream);border-radius:10px;padding:20px">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;color:var(--gold);text-transform:uppercase;margin-bottom:12px">Ejemplo práctico: SOP de Check-in</div>
+          <div style="font-size:14px;color:var(--ink-soft);line-height:1.8">
+            <strong>1.</strong> Saludar al huésped por su nombre (si lo tienes de la reserva).<br>
+            <strong>2.</strong> Confirmar datos de reserva y documento de identidad.<br>
+            <strong>3.</strong> Solicitar depósito o pago completo según política.<br>
+            <strong>4.</strong> Entregar llave/tarjeta y explicar ubicaciones clave (desayuno, WiFi, estacionamiento).<br>
+            <strong>5.</strong> Ofrecer upgrade si hay disponibilidad y es temporada baja.<br>
+            <strong>6.</strong> Preguntar si necesita algo más y desear buena estancia.
+          </div>
+          <div style="font-size:13px;color:var(--muted);margin-top:12px;font-style:italic">Seis pasos. Una página. Tu recepcionista lo aprende en 2 días.</div>
+        </div>
+        
+        <div class="callout" style="margin-top:16px"><b>No necesitas pagar $180,000 por un manual operativo.</b> Los consultores venden documentos genéricos que nadie usa. Tú puedes crear los tuyos en una tarde — lo importante no es el documento, es que el equipo lo adopte.</div>
+      </div>
+    </div>
+
+    <!-- P5 -->
+    <div class="pillar reveal">
+      <div class="num">05</div>
+      <div>
+        <div class="tag">Implementación · el camino paso a paso</div>
+        <h3>Construye tu canal directo en 3 capas (el orden importa)</h3>
+        <p>El canal directo no se construye de un día para otro. Tiene tres capas, y cada una depende de la anterior. La buena noticia: si ya gestionas OTAs, ya tienes la mitad de la infraestructura.</p>
+        
+        <div style="margin-top:20px;display:grid;gap:16px">
+          <div style="background:var(--cream);border-radius:10px;padding:18px 20px;border-left:3px solid var(--gold)">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;color:var(--gold);text-transform:uppercase;margin-bottom:8px">Capa 1 · Infraestructura (1-3 semanas)</div>
+            <div style="font-size:15px;color:var(--ink-soft)">
+              <strong>PMS + channel manager</strong> (ya lo tienes si gestionas OTAs) + <strong>motor de reservas</strong> integrado a tu sitio + <strong>pasarela de pago</strong> (Mercado Pago o Stripe). El motor de reservas tiene costo fijo mensual — a 150 noches directas al mes, el costo efectivo baja del 2%.
+            </div>
+          </div>
+          
+          <div style="background:var(--cream);border-radius:10px;padding:18px 20px;border-left:3px solid var(--gold)">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;color:var(--gold);text-transform:uppercase;margin-bottom:8px">Capa 2 · Presencia y reputación (inmediato + 3-6 meses)</div>
+            <div style="font-size:15px;color:var(--ink-soft)">
+              <strong>Google Business Profile</strong> completo (propiedades con perfil completo reciben hasta 2,700% más búsquedas) + <strong>Google Hotel Ads</strong> para aparecer junto a las OTAs + <strong>reseñas activas</strong> en Google y TripAdvisor. Sin reputación construida, el tráfico no llega ni convierte.
+            </div>
+          </div>
+          
+          <div style="background:var(--cream);border-radius:10px;padding:18px 20px;border-left:3px solid var(--gold)">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;color:var(--gold);text-transform:uppercase;margin-bottom:8px">Capa 3 · Cierre (1-2 semanas setup, operación diaria)</div>
+            <div style="font-size:15px;color:var(--ink-soft)">
+              <strong>WhatsApp Business</strong> (98% de apertura en México) con respuestas rápidas y enlace al motor de reservas. Quien te escribe ya salió de la OTA: responde en menos de 10 minutos, ofrece tu mejor tarifa y cierra. No hay violación de paridad en conversación privada — tienes control total.
+            </div>
+          </div>
+        </div>
+        
+        <div class="callout" style="margin-top:16px"><b>La capa que más se subestima es la 3.</b> Puedes tener la mejor tecnología y reputación, pero si nadie en tu propiedad sabe responder, cotizar y cerrar por WhatsApp, el canal directo no despega. Capacita a una persona específica para eso — no puede ser la misma persona que está en check-in, limpieza y administración al mismo tiempo.</div>
+        
+        <div style="margin-top:16px;font-size:14px;color:var(--ink-soft);line-height:1.7">
+          <strong>Timeline realista:</strong> Mes 1 = infraestructura operativa y primera reserva directa. Mes 2-3 = optimización de tarifas y primeras reseñas. Mes 4-6 = crecimiento activo del canal con base de contactos y programa de referidos. Objetivo a 12 meses: 40-60% de reservas directas.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FREE TOOLS ===================== -->
+<section class="band cream">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Herramientas gratuitas · para la comunidad</span>
+      <h2>Además de las calculadoras de arriba, esto es tuyo sin costo.</h2>
+      <p>Sin registro obligatorio, sin humo. Herramientas reales que puedes usar hoy para entender tu negocio antes de tomar cualquier decisión.</p>
+    </div>
+    <div class="tools-grid reveal">
+      <div class="tool">
+        <div class="eyebrow">Diagnóstico</div>
+        <h3>RevDiagnostic Tool</h3>
+        <p>Diagnostica todas tus métricas del período que elijas en menos de 5 minutos, con claridad real de cómo está tu negocio. Versión completa, gratis para la comunidad.</p>
+        <a class="btn btn-gold tool-cta" href="https://revdiagnostic.host-feast.online" target="_blank" rel="noopener">Probar gratis <span class="arrow">→</span></a>
+      </div>
+      <div class="tool">
+        <div class="eyebrow">Tu radiografía en 5 min</div>
+        <h3>Empieza por un solo número</h3>
+        <p>Si solo vas a hacer una cosa esta semana: toma tus últimos 3 meses, calcula tu RevPAR con RevDiagnostic y compáralo mes a mes. Ese es el punto de partida de todo lo demás.</p>
+        <a class="btn btn-ghost" style="color:var(--navy);border-color:var(--gold)" href="https://revdiagnostic.host-feast.online" target="_blank" rel="noopener">Ir a RevDiagnostic <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== KIT CTA ===================== -->
+<section class="kit">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">¿Listo para el sistema completo?</span>
+      <h2>Las cinco verdades son el mapa. <em>El Kit es el camino.</em></h2>
+      <p class="kit-lead">Cada pilar de esta guía tiene su herramienta en el <strong>Kit Hotelero Express</strong>: diagnóstico, canal directo, operación, pricing y planificación base — todo en un sistema que puedes implementar desde mañana, sin consultores caros ni manuales que nadie lee.</p>
+
+      <div class="kit-list">
+        <div class="ki"><span class="kt">P1 · MÉTRICAS</span><span class="kd"><b>RevDiagnostic Tool</b> — diagnostica ADR, RevPAR y GOP en menos de 5 minutos</span></div>
+        <div class="ki"><span class="kt">P2 · CANAL</span><span class="kd"><b>Guía Canal Directo Rentable</b> — el paso a paso para dejar de regalar el 20%</span></div>
+        <div class="ki"><span class="kt">P3 · PRECIOS</span><span class="kd"><b>RevDynamicPrice Tool</b> — tu sistema de pricing dinámico sin consultor</span></div>
+        <div class="ki"><span class="kt">P4 · OPERACIÓN</span><span class="kd"><b>Manual Operativo Estándar</b> — procedimientos listos para implementar</span></div>
+        <div class="ki"><span class="kt">BASE</span><span class="kd"><b>El Mapa Perfecto</b> — los 6 pasos para estructurar tu hotel desde la base correcta</span></div>
+      </div>
+
+      <div class="kit-cta-row">
+        <a class="btn btn-gold" href="https://www.host-feast.online" target="_blank" rel="noopener">Quiero mi Kit Hotelero Express <span class="arrow">→</span></a>
+        <a class="btn btn-ghost" href="https://wa.me/529511791841?text=Quiero%20cotizar%20el%20Kit%20Hotelero%20Express" target="_blank" rel="noopener">Preguntar por WhatsApp</a>
+      </div>
+      <div class="note">Precio de introducción activo · menos de lo que le regalas a Booking en una noche.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="wrap foot-grid">
+    <div class="foot-brand">HOST<b> | </b>FEAST</div>
+    <div class="foot-links">
+      <a href="https://www.host-feast.online" target="_blank" rel="noopener">host-feast.online</a>
+      <a href="https://wa.me/529511791841" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="https://instagram.com/luissant_mx" target="_blank" rel="noopener">@luissant_mx</a>
+      <a href="https://calendar.app.google/KabsLmm4mEuoeKny6" target="_blank" rel="noopener">Agendar llamada</a>
+    </div>
+  </div>
+  <div class="wrap" style="margin-top:16px;font-size:12px;color:#5f7180">Consultoría y tecnología para hotelería independiente en México.</div>
+</footer>
+
+<script>
+  const MXN = new Intl.NumberFormat('es-MX',{style:'currency',currency:'MXN',maximumFractionDigits:0});
+  const num = id => parseFloat(document.getElementById(id).value) || 0;
+
+  // ---- OTA leak ----
+  function calcOTA(){
+    const rooms=num('ota_rooms'), adr=num('ota_adr'), occ=num('ota_occ')/100,
+          share=num('ota_share')/100, comm=num('ota_comm')/100;
+    const nights = rooms*30*occ;
+    const otaRevenue = nights*adr*share;
+    const monthly = otaRevenue*comm;
+    const yearly = monthly*12;
+    // recover half of OTA reservations to direct; net gain = commission saved minus 3.5% payment gateway
+    const recoverable = (otaRevenue*0.5)*(comm-0.035)*12;
+    document.getElementById('ota_month').textContent = MXN.format(monthly);
+    document.getElementById('ota_year').textContent  = MXN.format(yearly);
+    document.getElementById('ota_save').textContent  = MXN.format(Math.max(0,recoverable));
+  }
+  ['ota_rooms','ota_adr','ota_occ','ota_share','ota_comm'].forEach(id=>document.getElementById(id).addEventListener('input',calcOTA));
+
+  // ---- BAR ----
+  function calcBar(){
+    const fixed=num('b_fixed'), rooms=num('b_rooms'), days=num('b_days'), margin=num('b_margin')/100;
+    const perNight = (rooms*days)>0 ? fixed/(rooms*days) : 0;
+    const bar = perNight*(1+margin);
+    document.getElementById('b_cost').textContent = MXN.format(perNight);
+    document.getElementById('b_bar').textContent = MXN.format(bar);
+  }
+  ['b_fixed','b_rooms','b_days','b_margin'].forEach(id=>document.getElementById(id).addEventListener('input',calcBar));
+
+  calcOTA(); calcBar();
+
+  // ---- Scroll reveal ----
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
