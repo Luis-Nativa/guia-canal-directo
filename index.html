@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Cinco verdades que los hoteleros rentables aplican desde el día uno · Host & Feast</title>
+<title>Cuatro verdades que los hoteleros rentables aplican desde el día uno · Host & Feast</title>
 <meta name="description" content="Guía interactiva y gratuita para hoteleros independientes en México. Calcula cuánto le regalas a las OTAs, tu tarifa mínima y tu camino al canal directo." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -193,6 +193,7 @@
     .pillar .num{font-size:36px}
     section.band{padding:56px 0}
     .capture{padding:24px}
+    div[style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr !important}
   }
   @media (prefers-reduced-motion:reduce){
     html{scroll-behavior:auto}
@@ -215,7 +216,7 @@
       <div>
         <div class="eyebrow hero-kicker">Guía interactiva · hotelería independiente</div>
         <h1>Lo que nadie te enseña cuando <em>tienes un hotel</em></h1>
-        <p class="lead">Cinco verdades que los hoteleros rentables aplican desde el día uno — con calculadoras que funcionan de verdad, no promesas.</p>
+        <p class="lead">Cuatro verdades que los hoteleros rentables aplican desde el día uno — con calculadoras que funcionan de verdad, no promesas.</p>
         <div class="byline">por Luis Santibáñez</div>
         <a href="#guia" class="scrollcue">Empezar por tus números <span class="arrow">↓</span></a>
       </div>
@@ -235,9 +236,11 @@
           <div class="field"><label>Ocupación (%)</label><input id="ota_occ" type="number" inputmode="numeric" value="65" min="0" max="100"></div>
           <div class="field"><label>Reservas vía OTA (%)</label><input id="ota_share" type="number" inputmode="numeric" value="70" min="0" max="100"></div>
         </div>
-        <div class="field"><label>Comisión + IVA (%)</label><input id="ota_comm" type="number" inputmode="numeric" value="21" min="0" max="100"></div>
-        <div style="font-size:13px;color:var(--muted);margin-top:8px;font-style:italic">El cálculo proyecta 30 días de operación con los valores ingresados.</div>
+        <div class="field"><label>Comisión OTA (%)</label><input id="ota_comm" type="number" inputmode="numeric" value="18" min="0" max="100"></div>
+        <div style="font-size:13px;color:var(--muted);margin-top:8px;font-style:italic">El cálculo proyecta 30 días. La comisión es el porcentaje base que cobra la OTA (sin IVA).</div>
         <div class="readouts">
+          <div class="readout"><div class="rlabel">Noches disponibles/mes</div><div class="rval" id="ota_avail">—</div></div>
+          <div class="readout"><div class="rlabel">Noches vendidas vía OTA</div><div class="rval" id="ota_nights">—</div></div>
           <div class="readout"><div class="rlabel">Comisión / mes</div><div class="rval" id="ota_month">—</div></div>
           <div class="readout"><div class="rlabel">Comisión / año</div><div class="rval" id="ota_year">—</div></div>
           <div class="readout big"><div class="rlabel">Recuperable moviendo la mitad al canal directo</div><div class="rval" id="ota_save">—</div><div class="rsub">estimado anual, descontando 3.5% de pasarela de pago</div></div>
@@ -256,7 +259,7 @@
     <div>
       <p>Nadie te explicó que tener un hotel boutique en México significa pagar entre el 18% y el 25% de cada reserva a una plataforma que ni siquiera conoce a tus huéspedes. Nadie te dijo que sin un sistema de precios claro, dejas dinero sobre la mesa cada temporada. Y nadie te entregó un manual de operación el día que abriste.</p>
       <p><strong>Eso no es un fracaso tuyo. Es la norma en la hospitalidad independiente.</strong></p>
-      <p>Esta guía existe para cambiar eso. No te voy a vender el sueño de un hotel que se administra solo. Te voy a mostrar cinco puntos concretos donde la mayoría pierde dinero — y herramientas que puedes usar ahora mismo para cada uno.</p>
+      <p>Esta guía existe para cambiar eso. No te voy a vender el sueño de un hotel que se administra solo. Te voy a mostrar cuatro puntos concretos donde la mayoría pierde dinero — y herramientas que puedes usar ahora mismo para cada uno.</p>
     </div>
   </div>
 </section>
@@ -265,7 +268,7 @@
 <section class="band">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Las cinco verdades</span>
+      <span class="eyebrow">Las cuatro verdades</span>
       <h2>Nada de teoría. Cada punto trae algo que puedes aplicar hoy.</h2>
     </div>
 
@@ -282,7 +285,12 @@
           <li><strong>GOP</strong> — te dice si el negocio es rentable o solo está ocupado.</li>
         </ul>
         <div class="callout"><b>Regla rápida:</b> dos hoteles con la misma ocupación pueden tener rentabilidad opuesta. El que gana es el que conoce su RevPAR y su GOP, no el que llena más.</div>
-        <div class="callout" style="margin-top:12px"><b>Herramienta gratuita:</b> calcula tus tres métricas en menos de 5 minutos con <a href="https://revdiagnostic.host-feast.online" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:underline">RevDiagnostic →</a></div>
+        
+        <div style="margin-top:24px;background:var(--navy);color:var(--cream);border-radius:12px;padding:24px;text-align:center">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;color:var(--gold);text-transform:uppercase;margin-bottom:10px">Herramienta gratuita</div>
+          <div style="font-family:'Fraunces',serif;font-size:20px;color:#fff;margin-bottom:12px">Diagnostica tu ADR, RevPAR y GOP en menos de 5 minutos</div>
+          <a class="btn btn-gold" href="https://revdiagnostic.host-feast.online" target="_blank" rel="noopener" style="margin-top:8px">Probar RevDiagnostic gratis <span class="arrow">→</span></a>
+        </div>
       </div>
     </div>
 
@@ -290,16 +298,40 @@
     <div class="pillar reveal">
       <div class="num">02</div>
       <div>
-        <div class="tag">Canal directo · el 20% que regalas</div>
-        <h3>El 20% que le regalas a Booking cada mes</h3>
-        <p>El canal directo no significa abandonar Booking. Significa recuperar una parte de esas reservas — y el margen completo de cada una. El camino tiene tres pasos, y el orden importa:</p>
-        <ul>
-          <li><strong>Infraestructura</strong> — PMS + channel manager + motor de reservas + pasarela. Si ya gestionas OTAs, la mitad ya la tienes.</li>
-          <li><strong>Presencia</strong> — Google Business Profile completo y Google Hotel Ads para aparecer junto a las OTAs, con paridad tarifaria estricta.</li>
-          <li><strong>Cierre</strong> — WhatsApp Business (98% de apertura en México). Quien te escribe ya salió de la OTA: responde en menos de 10 minutos y cierra.</li>
-        </ul>
-        <div class="callout"><b>El truco del channel manager que pocos aplican:</b> carga las tarifas de OTAs 10-15% por encima de tu tarifa web directa. Tu web es la más barata, cumples paridad, y el huésped que compara tiene incentivo real para reservarte directo.</div>
-        <p style="font-size:14px;color:var(--muted);margin-top:8px">↑ Usa la calculadora de arriba para ver tu número exacto de comisiones.</p>
+        <div class="tag">Canal directo · el camino completo</div>
+        <h3>El 20% que le regalas a Booking — y cómo recuperarlo</h3>
+        <p>El canal directo no significa abandonar Booking. Significa recuperar una parte de esas reservas — y el margen completo de cada una. No es un proyecto de un día: tiene tres capas, y el orden importa.</p>
+        
+        <div style="margin-top:20px;display:grid;gap:16px">
+          <div style="background:var(--cream);border-radius:10px;padding:18px 20px;border-left:3px solid var(--gold)">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;color:var(--gold);text-transform:uppercase;margin-bottom:8px">Capa 1 · Infraestructura (1-3 semanas)</div>
+            <div style="font-size:15px;color:var(--ink-soft);line-height:1.7">
+              <strong>PMS + channel manager</strong> — ya lo tienes si gestionas OTAs. Lo que agrega el canal directo es un <strong>motor de reservas</strong> integrado a tu sitio web y una <strong>pasarela de pago</strong> (Mercado Pago para turismo doméstico, Stripe para internacional). El motor tiene costo fijo mensual — a 150 noches directas al mes, el costo efectivo baja del 2%. Sin motor de reservas, no hay canal directo.
+            </div>
+          </div>
+          
+          <div style="background:var(--cream);border-radius:10px;padding:18px 20px;border-left:3px solid var(--gold)">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;color:var(--gold);text-transform:uppercase;margin-bottom:8px">Capa 2 · Presencia y reputación (inmediato + 3-6 meses)</div>
+            <div style="font-size:15px;color:var(--ink-soft);line-height:1.7">
+              <strong>Google Business Profile</strong> completo — propiedades con perfil completo reciben hasta 2,700% más búsquedas. <strong>Google Hotel Ads</strong> para que tu tarifa directa aparezca junto a las OTAs en los resultados de búsqueda. <strong>Reseñas activas</strong> en Google y TripAdvisor — son la señal de confianza más importante para el huésped que considera reservarte directo. Sin reputación construida, el tráfico no llega ni convierte.
+            </div>
+          </div>
+          
+          <div style="background:var(--cream);border-radius:10px;padding:18px 20px;border-left:3px solid var(--gold)">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;color:var(--gold);text-transform:uppercase;margin-bottom:8px">Capa 3 · Cierre (1-2 semanas setup, operación diaria)</div>
+            <div style="font-size:15px;color:var(--ink-soft);line-height:1.7">
+              <strong>WhatsApp Business</strong> (98% de apertura en México) con respuestas rápidas y enlace al motor de reservas. Quien te escribe ya salió de la OTA: responde en menos de 10 minutos, ofrece tu mejor tarifa y cierra. No hay violación de paridad en conversación privada — tienes control total. <strong>Esta es la capa que más se subestima:</strong> puedes tener la mejor tecnología y reputación, pero si nadie en tu propiedad sabe responder, cotizar y cerrar por WhatsApp, el canal directo no despega.
+            </div>
+          </div>
+        </div>
+        
+        <div class="callout" style="margin-top:16px"><b>El truco del channel manager que pocos aplican:</b> carga las tarifas de OTAs 10-15% por encima de tu tarifa web directa. Tu web es la más barata, cumples paridad, y el huésped que compara tiene incentivo real para reservarte directo.</div>
+        
+        <div style="margin-top:16px;font-size:14px;color:var(--ink-soft);line-height:1.7">
+          <strong>Timeline realista:</strong> Mes 1 = infraestructura operativa y primera reserva directa. Mes 2-3 = optimización de tarifas y primeras reseñas. Mes 4-6 = crecimiento activo del canal con base de contactos y programa de referidos. Objetivo a 12 meses: 40-60% de reservas directas.
+        </div>
+        
+        <p style="font-size:14px;color:var(--muted);margin-top:12px">↑ Usa la calculadora del inicio para ver tu número exacto de comisiones y cuánto puedes recuperar.</p>
       </div>
     </div>
 
@@ -318,6 +350,28 @@
           <span class="g">BAR mínimo</span> = costo total × (1 + margen)
         </div>
         <div class="callout" style="margin-top:16px"><b>Tus costos bajos no son tu techo — son tu ventaja.</b> El precio lo define el mercado (tu compset, la demanda, tu experiencia), no tu estructura de gastos.</div>
+        
+        <div style="margin-top:20px">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;margin-bottom:12px">Los 4 tipos de tarifa que toda propiedad debe tener activos:</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+            <div style="background:var(--cream);border-radius:8px;padding:14px 16px">
+              <div style="font-weight:600;color:var(--ink);font-size:14px;margin-bottom:4px">Flexible (Rack)</div>
+              <div style="font-size:13px;color:var(--ink-soft)">Tu tarifa publicada estándar, cancelable con política normal. Es la referencia visible en OTAs y motor de reservas.</div>
+            </div>
+            <div style="background:var(--cream);border-radius:8px;padding:14px 16px">
+              <div style="font-weight:600;color:var(--ink);font-size:14px;margin-bottom:4px">No reembolsable (NR)</div>
+              <div style="font-size:13px;color:var(--ink-soft)">8-15% de descuento a cambio de pago anticipado total. Para ti: ingreso garantizado, cero riesgo de cancelación.</div>
+            </div>
+            <div style="background:var(--cream);border-radius:8px;padding:14px 16px">
+              <div style="font-weight:600;color:var(--ink);font-size:14px;margin-bottom:4px">Anticipada (Early Book)</div>
+              <div style="font-size:13px;color:var(--ink-soft)">Para reservas con 30-60 días de anticipación. Puedes ofrecer valor agregado (upgrade, amenidad) en vez de descuento.</div>
+            </div>
+            <div style="background:var(--cream);border-radius:8px;padding:14px 16px">
+              <div style="font-weight:600;color:var(--ink);font-size:14px;margin-bottom:4px">Último minuto (Last Minute)</div>
+              <div style="font-size:13px;color:var(--ink-soft)">Para llenar inventario en las 48-72 horas previas si la ocupación está baja. Siempre con piso: nunca por debajo de tu BAR.</div>
+            </div>
+          </div>
+        </div>
 
         <!-- P3 TOOL -->
         <div class="calc light reveal" id="bar">
@@ -376,48 +430,30 @@
           <div style="font-size:13px;color:var(--muted);margin-top:12px;font-style:italic">Seis pasos. Una página. Tu recepcionista lo aprende en 2 días.</div>
         </div>
         
+        <div style="margin-top:16px;background:var(--cream);border-radius:10px;padding:20px">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;color:var(--gold);text-transform:uppercase;margin-bottom:12px">Ejemplo práctico: SOP de Cierre de Turno Nocturno</div>
+          <div style="font-size:14px;color:var(--ink-soft);line-height:1.8">
+            <strong>1.</strong> Verificar que todos los check-ins del día estén registrados en el PMS.<br>
+            <strong>2.</strong> Contar caja y conciliar con el reporte del sistema.<br>
+            <strong>3.</strong> Revisar llegadas del día siguiente — preparar llaves y asignaciones.<br>
+            <strong>4.</strong> Confirmar reservas con depósito pendiente — enviar recordatorio si aplica.<br>
+            <strong>5.</strong> Dejar reporte de incidencias para el turno siguiente (bitácora o WhatsApp grupal).<br>
+            <strong>6.</strong> Apagar luces de áreas comunes, asegurar accesos, activar protocolo nocturno.
+          </div>
+          <div style="font-size:13px;color:var(--muted);margin-top:12px;font-style:italic">El que llega en la mañana no tiene que adivinar qué pasó. Todo está documentado.</div>
+        </div>
+        
+        <div style="margin-top:16px;background:var(--cream);border-radius:10px;padding:20px">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;color:var(--gold);text-transform:uppercase;margin-bottom:12px">Lista de verificación (checklist)</div>
+          <div style="font-size:14px;color:var(--ink-soft);line-height:1.8">
+            No es para controlar al colaborador — es para que él confirme que no se saltó ningún paso. Puede ser una hoja impresa con casillas, o un formulario digital simple. Lo importante es que el colaborador la complete cada vez y la firme (física o digitalmente). Eso genera hábito y responsabilidad.
+          </div>
+        </div>
+        
         <div class="callout" style="margin-top:16px"><b>No necesitas pagar $180,000 por un manual operativo.</b> Los consultores venden documentos genéricos que nadie usa. Tú puedes crear los tuyos en una tarde — lo importante no es el documento, es que el equipo lo adopte.</div>
       </div>
     </div>
 
-    <!-- P5 -->
-    <div class="pillar reveal">
-      <div class="num">05</div>
-      <div>
-        <div class="tag">Implementación · el camino paso a paso</div>
-        <h3>Construye tu canal directo en 3 capas (el orden importa)</h3>
-        <p>El canal directo no se construye de un día para otro. Tiene tres capas, y cada una depende de la anterior. La buena noticia: si ya gestionas OTAs, ya tienes la mitad de la infraestructura.</p>
-        
-        <div style="margin-top:20px;display:grid;gap:16px">
-          <div style="background:var(--cream);border-radius:10px;padding:18px 20px;border-left:3px solid var(--gold)">
-            <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;color:var(--gold);text-transform:uppercase;margin-bottom:8px">Capa 1 · Infraestructura (1-3 semanas)</div>
-            <div style="font-size:15px;color:var(--ink-soft)">
-              <strong>PMS + channel manager</strong> (ya lo tienes si gestionas OTAs) + <strong>motor de reservas</strong> integrado a tu sitio + <strong>pasarela de pago</strong> (Mercado Pago o Stripe). El motor de reservas tiene costo fijo mensual — a 150 noches directas al mes, el costo efectivo baja del 2%.
-            </div>
-          </div>
-          
-          <div style="background:var(--cream);border-radius:10px;padding:18px 20px;border-left:3px solid var(--gold)">
-            <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;color:var(--gold);text-transform:uppercase;margin-bottom:8px">Capa 2 · Presencia y reputación (inmediato + 3-6 meses)</div>
-            <div style="font-size:15px;color:var(--ink-soft)">
-              <strong>Google Business Profile</strong> completo (propiedades con perfil completo reciben hasta 2,700% más búsquedas) + <strong>Google Hotel Ads</strong> para aparecer junto a las OTAs + <strong>reseñas activas</strong> en Google y TripAdvisor. Sin reputación construida, el tráfico no llega ni convierte.
-            </div>
-          </div>
-          
-          <div style="background:var(--cream);border-radius:10px;padding:18px 20px;border-left:3px solid var(--gold)">
-            <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;color:var(--gold);text-transform:uppercase;margin-bottom:8px">Capa 3 · Cierre (1-2 semanas setup, operación diaria)</div>
-            <div style="font-size:15px;color:var(--ink-soft)">
-              <strong>WhatsApp Business</strong> (98% de apertura en México) con respuestas rápidas y enlace al motor de reservas. Quien te escribe ya salió de la OTA: responde en menos de 10 minutos, ofrece tu mejor tarifa y cierra. No hay violación de paridad en conversación privada — tienes control total.
-            </div>
-          </div>
-        </div>
-        
-        <div class="callout" style="margin-top:16px"><b>La capa que más se subestima es la 3.</b> Puedes tener la mejor tecnología y reputación, pero si nadie en tu propiedad sabe responder, cotizar y cerrar por WhatsApp, el canal directo no despega. Capacita a una persona específica para eso — no puede ser la misma persona que está en check-in, limpieza y administración al mismo tiempo.</div>
-        
-        <div style="margin-top:16px;font-size:14px;color:var(--ink-soft);line-height:1.7">
-          <strong>Timeline realista:</strong> Mes 1 = infraestructura operativa y primera reserva directa. Mes 2-3 = optimización de tarifas y primeras reseñas. Mes 4-6 = crecimiento activo del canal con base de contactos y programa de referidos. Objetivo a 12 meses: 40-60% de reservas directas.
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -435,10 +471,27 @@
         <span>Revenue Management</span>
         <span>Automatización</span>
       </div>
-      <div class="star-cta-row">
-        <a class="btn btn-gold" href="https://www.host-feast.online" target="_blank" rel="noopener">Quiero mi Kit Express <span class="arrow">→</span></a>
-        <a class="btn btn-ghost" style="color:var(--navy);border-color:var(--gold)" href="https://revdiagnostic.host-feast.online" target="_blank" rel="noopener">Probar RevDiagnostic <span class="arrow">→</span></a>
-      </div>
+      <a class="btn btn-gold" href="https://www.host-feast.online" target="_blank" rel="noopener" style="width:100%;justify-content:center;font-size:15px;padding:18px 24px">
+        <s style="opacity:.6">$67</s>&nbsp; $47 &nbsp;por tiempo limitado <span class="arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== POR QUÉ EXISTE ESTE KIT ===================== -->
+<section class="band light">
+  <div class="wrap">
+    <div class="reveal" style="max-width:680px">
+      <span class="eyebrow" style="color:var(--gold);display:block;margin-bottom:16px">Por qué existe este kit — y por qué cuesta lo que cuesta</span>
+      <p style="color:var(--ink-soft);margin-bottom:16px;line-height:1.7">Llevo años trabajando con hoteleros independientes en México. Y hay algo que me repiten casi siempre: ya contrataron a alguien antes. Un consultor, una agencia, algún "experto en hotelería" que les prometió resultados.</p>
+      <p style="color:var(--ink-soft);margin-bottom:16px;line-height:1.7">Lo que me cuentan después varía — pero el patrón es el mismo. Estrategias sin fundamentos reales. Manuales genéricos que nadie usa. Y precios que van desde los $50,000 hasta los $200,000 pesos por entregables que cualquier hotelero con las herramientas correctas podría implementar solo.</p>
+      <p style="color:var(--ink-soft);margin-bottom:16px;line-height:1.7">No exagero. Me lo han dicho de frente, casi como queja: <em>"me vendieron un manual operativo en $180,000 pesos y mis empleados nunca lo leyeron."</em></p>
+      <p style="color:var(--ink-soft);margin-bottom:16px;line-height:1.7">Eso me dolía escuchar. Porque el problema no era el manual — era que nadie les explicó para qué sirve ni cómo hacer que el equipo lo adopte. Les vendieron un documento, no un sistema.</p>
+      <p style="color:var(--ink-soft);margin-bottom:16px;line-height:1.7">Pasé meses desarrollando el Kit Hotelero Express con una sola pregunta en mente: <strong>¿cómo le doy al operador independiente las mismas herramientas que funcionan en consultoría personalizada, en un formato que pueda aplicar desde el día uno, sin que le cueste lo que no tiene?</strong></p>
+      <p style="color:var(--ink-soft);margin-bottom:24px;line-height:1.7">El resultado es lo que tienes en tus manos: diagnóstico, canal directo, operación, pricing y planificación base — todo en un kit que podría venderse en cientos de dólares y que hoy, en precio de introducción, cuesta menos de lo que rentas una noche de habitación.</p>
+      <p style="color:var(--ink-soft);margin-bottom:24px;line-height:1.7"><strong>Este precio está activo desde que abriste esta guía. No sé hasta cuándo — lo que sí sé es que cuando lo ajuste, va a costar bastante más.</strong></p>
+      <a class="btn btn-gold" href="https://www.host-feast.online" target="_blank" rel="noopener">Quiero mi Kit Hotelero Express <span class="arrow">→</span></a>
+      <p style="font-size:14px;color:var(--muted);margin-top:20px;line-height:1.6">¿Tienes preguntas antes de decidir? <a href="https://wa.me/529511791841" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:underline">Escríbenos por WhatsApp →</a></p>
     </div>
   </div>
 </section>
@@ -448,14 +501,14 @@
   <div class="wrap">
     <div class="reveal">
       <span class="eyebrow">¿Listo para el sistema completo?</span>
-      <h2>Las cinco verdades son el mapa. <em>El Kit es el camino.</em></h2>
+      <h2>Las cuatro verdades son el mapa. <em>El Kit es el camino.</em></h2>
       <p class="kit-lead">Cada pilar de esta guía tiene su herramienta en el <strong>Kit Hotelero Express</strong>: diagnóstico, canal directo, operación, pricing y planificación base — todo en un sistema que puedes implementar desde mañana, sin consultores caros ni manuales que nadie lee.</p>
 
       <div class="kit-list">
-        <div class="ki"><span class="kt">P1 · MÉTRICAS</span><span class="kd"><b>RevDiagnostic Tool</b> — diagnostica ADR, RevPAR y GOP en menos de 5 minutos</span></div>
-        <div class="ki"><span class="kt">P2 · CANAL</span><span class="kd"><b>Guía Canal Directo Rentable</b> — el paso a paso para dejar de regalar el 20%</span></div>
-        <div class="ki"><span class="kt">P3 · PRECIOS</span><span class="kd"><b>RevDynamicPrice Tool</b> — tu sistema de pricing dinámico sin consultor</span></div>
-        <div class="ki"><span class="kt">P4 · OPERACIÓN</span><span class="kd"><b>Manual Operativo Estándar</b> — procedimientos listos para implementar</span></div>
+        <div class="ki"><span class="kt">01 · MÉTRICAS</span><span class="kd"><b>RevDiagnostic Tool</b> — diagnostica ADR, RevPAR y GOP en menos de 5 minutos</span></div>
+        <div class="ki"><span class="kt">02 · CANAL</span><span class="kd"><b>Guía Canal Directo Rentable</b> — el paso a paso para dejar de regalar el 20%</span></div>
+        <div class="ki"><span class="kt">03 · PRECIOS</span><span class="kd"><b>RevDynamicPrice Tool</b> — tu sistema de pricing dinámico sin consultor</span></div>
+        <div class="ki"><span class="kt">04 · OPERACIÓN</span><span class="kd"><b>Manual Operativo Estándar</b> — procedimientos listos para implementar</span></div>
         <div class="ki"><span class="kt">BASE</span><span class="kd"><b>El Mapa Perfecto</b> — los 6 pasos para estructurar tu hotel desde la base correcta</span></div>
       </div>
 
@@ -484,29 +537,42 @@
 
 <script>
   const MXN = new Intl.NumberFormat('es-MX',{style:'currency',currency:'MXN',maximumFractionDigits:0});
+  const NUM = new Intl.NumberFormat('es-MX',{maximumFractionDigits:0});
   const num = id => {
     const v = parseFloat(document.getElementById(id).value);
     return isNaN(v) ? 0 : v;
   };
 
-  function clampPercent(id) {
-    const el = document.getElementById(id);
-    let v = parseFloat(el.value);
-    if (isNaN(v)) { el.value = 0; return 0; }
-    if (v > 100) { el.value = 100; return 100; }
-    if (v < 0) { el.value = 0; return 0; }
+  function getPercent(id) {
+    const v = parseFloat(document.getElementById(id).value);
+    if (isNaN(v) || v < 0) return 0;
+    if (v > 100) return 100;
     return v;
   }
 
+  function onPercentBlur(e) {
+    const el = e.target;
+    let v = parseFloat(el.value);
+    if (isNaN(v) || v < 0) { el.value = ''; return; }
+    if (v > 100) el.value = 100;
+  }
+
+  ['ota_occ','ota_share','ota_comm','b_occ','b_margin'].forEach(id =>
+    document.getElementById(id).addEventListener('blur', onPercentBlur)
+  );
+
   // ---- OTA leak ----
   function calcOTA(){
-    const rooms=num('ota_rooms'), adr=num('ota_adr'), occ=clampPercent('ota_occ')/100,
-          share=clampPercent('ota_share')/100, comm=clampPercent('ota_comm')/100;
-    const nights = rooms*30*occ;
-    const otaRevenue = nights*adr*share;
+    const rooms=num('ota_rooms'), adr=num('ota_adr'), occ=getPercent('ota_occ')/100,
+          share=getPercent('ota_share')/100, comm=getPercent('ota_comm')/100;
+    const avail = rooms*30;
+    const nights = avail*occ*share;
+    const otaRevenue = nights*adr;
     const monthly = otaRevenue*comm;
     const yearly = monthly*12;
     const recoverable = (otaRevenue*0.5)*(comm-0.035)*12;
+    document.getElementById('ota_avail').textContent = NUM.format(avail);
+    document.getElementById('ota_nights').textContent = NUM.format(nights);
     document.getElementById('ota_month').textContent = MXN.format(monthly);
     document.getElementById('ota_year').textContent  = MXN.format(yearly);
     document.getElementById('ota_save').textContent  = MXN.format(Math.max(0,recoverable));
@@ -516,7 +582,7 @@
   // ---- BAR (fórmula mejorada con costos variables y ocupación) ----
   function calcBar(){
     const fixed=num('b_fixed'), rooms=num('b_rooms'), days=num('b_days'),
-          occ=clampPercent('b_occ')/100, variable=num('b_var'), margin=clampPercent('b_margin')/100;
+          occ=getPercent('b_occ')/100, variable=num('b_var'), margin=getPercent('b_margin')/100;
     const projectedNights = rooms*days*occ;
     const fixedPerNight = projectedNights>0 ? fixed/projectedNights : 0;
     const totalCostPerNight = variable + fixedPerNight;
