@@ -127,6 +127,16 @@
   .tool p{color:#b7c2cc;font-size:15px;flex:1}
   .tool .btn{margin-top:20px;align-self:flex-start}
 
+  /* star banner */
+  .star-banner{background:var(--navy);color:var(--cream);border-radius:16px;padding:48px 40px;text-align:center;max-width:800px;margin:0 auto}
+  .star-eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;margin-bottom:14px}
+  .star-title{font-family:'Fraunces',serif;font-size:clamp(28px,3.5vw,40px);color:#fff;margin-bottom:12px}
+  .star-badge{display:inline-block;background:var(--gold);color:var(--navy);font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:6px 16px;border-radius:999px;margin-bottom:20px}
+  .star-desc{color:#b7c2cc;font-size:16px;max-width:56ch;margin:0 auto 24px;line-height:1.7}
+  .star-tags{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-bottom:28px}
+  .star-tags span{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;color:var(--gold);border:1px solid var(--line-navy);border-radius:999px;padding:6px 14px}
+  .star-cta-row{display:flex;flex-wrap:wrap;justify-content:center;gap:14px}
+
   /* buttons */
   .btn{display:inline-flex;align-items:center;gap:10px;font-family:'JetBrains Mono',monospace;font-weight:700;
     font-size:13px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;
@@ -178,6 +188,7 @@
     body{font-size:16px}
     .hero-grid,.intro-grid,.capture{grid-template-columns:1fr;gap:34px}
     .tools-grid,.kit-list{grid-template-columns:1fr}
+    .star-banner{padding:32px 20px}
     .pillar{grid-template-columns:1fr;gap:6px}
     .pillar .num{font-size:36px}
     section.band{padding:56px 0}
@@ -217,14 +228,15 @@
         </div>
         <div style="font-family:'Fraunces',serif;font-size:19px;color:#fff;margin-bottom:16px;line-height:1.3">¿Cuánto le regalas a las OTAs?</div>
         <div class="field-row">
-          <div class="field"><label>Habitaciones</label><input id="ota_rooms" type="number" inputmode="numeric" value="10"></div>
-          <div class="field"><label>ADR (MXN/noche)</label><input id="ota_adr" type="number" inputmode="numeric" value="1200"></div>
+          <div class="field"><label>Habitaciones (total del hotel)</label><input id="ota_rooms" type="number" inputmode="numeric" value="10" min="1"></div>
+          <div class="field"><label>ADR (MXN/noche)</label><input id="ota_adr" type="number" inputmode="numeric" value="1200" min="1"></div>
         </div>
         <div class="field-row">
-          <div class="field"><label>Ocupación (%)</label><input id="ota_occ" type="number" inputmode="numeric" value="65"></div>
-          <div class="field"><label>Reservas vía OTA (%)</label><input id="ota_share" type="number" inputmode="numeric" value="70"></div>
+          <div class="field"><label>Ocupación (%)</label><input id="ota_occ" type="number" inputmode="numeric" value="65" min="0" max="100"></div>
+          <div class="field"><label>Reservas vía OTA (%)</label><input id="ota_share" type="number" inputmode="numeric" value="70" min="0" max="100"></div>
         </div>
-        <div class="field"><label>Comisión + IVA (%)</label><input id="ota_comm" type="number" inputmode="numeric" value="21"></div>
+        <div class="field"><label>Comisión + IVA (%)</label><input id="ota_comm" type="number" inputmode="numeric" value="21" min="0" max="100"></div>
+        <div style="font-size:13px;color:var(--muted);margin-top:8px;font-style:italic">El cálculo proyecta 30 días de operación con los valores ingresados.</div>
         <div class="readouts">
           <div class="readout"><div class="rlabel">Comisión / mes</div><div class="rval" id="ota_month">—</div></div>
           <div class="readout"><div class="rlabel">Comisión / año</div><div class="rval" id="ota_year">—</div></div>
@@ -300,8 +312,10 @@
         <p>El Marriott no cobra lo mismo un martes de febrero que el viernes de Semana Santa. Eso es <strong>revenue management dinámico</strong> — y durante años fue exclusivo de cadenas grandes. Ya no lo es.</p>
         <p>El punto de partida es tu <strong>BAR (Best Available Rate)</strong>: el precio base más bajo sobre el que construyes todo lo demás. Pero ese número es tu <em>piso</em>, no tu precio de salida.</p>
         <div class="formula">
-          <span class="g">Costos fijos ÷ habitaciones ÷ días</span> = costo por habitación/noche<br>
-          <span class="g">Costo/noche + margen mínimo</span> = BAR mínimo
+          <span class="g">Noches proyectadas</span> = habitaciones × días × ocupación esperada<br>
+          <span class="g">Costo fijo por noche vendida</span> = costos fijos ÷ noches proyectadas<br>
+          <span class="g">Costo total por noche</span> = costo variable + costo fijo por noche<br>
+          <span class="g">BAR mínimo</span> = costo total × (1 + margen)
         </div>
         <div class="callout" style="margin-top:16px"><b>Tus costos bajos no son tu techo — son tu ventaja.</b> El precio lo define el mercado (tu compset, la demanda, tu experiencia), no tu estructura de gastos.</div>
 
@@ -309,16 +323,27 @@
         <div class="calc light reveal" id="bar">
           <div class="calc-head"><div class="eyebrow">Calculadora de BAR mínimo</div><div class="free-pill" style="background:var(--gold);color:var(--navy)">Gratis</div></div>
           <div class="field-row">
-            <div class="field"><label>Costos fijos mensuales (MXN)</label><input id="b_fixed" type="number" inputmode="numeric" value="90000"></div>
-            <div class="field"><label>Habitaciones</label><input id="b_rooms" type="number" inputmode="numeric" value="10"></div>
+            <div class="field"><label>Costos fijos mensuales (MXN)</label><input id="b_fixed" type="number" inputmode="numeric" value="90000" min="1"></div>
+            <div class="field"><label>Habitaciones</label><input id="b_rooms" type="number" inputmode="numeric" value="10" min="1"></div>
           </div>
           <div class="field-row">
-            <div class="field"><label>Días del mes</label><input id="b_days" type="number" inputmode="numeric" value="30"></div>
-            <div class="field"><label>Margen mínimo (%)</label><input id="b_margin" type="number" inputmode="numeric" value="45"></div>
+            <div class="field"><label>Días del mes</label><input id="b_days" type="number" inputmode="numeric" value="30" min="1"></div>
+            <div class="field"><label>Ocupación esperada (%)</label><input id="b_occ" type="number" inputmode="numeric" value="65" min="0" max="100"></div>
+          </div>
+          <div class="field-row">
+            <div class="field"><label>Costo variable por noche ocupada (MXN)</label><input id="b_var" type="number" inputmode="numeric" value="250" min="0"></div>
+            <div class="field"><label>Margen mínimo (%)</label><input id="b_margin" type="number" inputmode="numeric" value="45" min="0" max="100"></div>
           </div>
           <div class="readouts">
-            <div class="readout"><div class="rlabel">Costo por noche</div><div class="rval" id="b_cost">—</div></div>
-            <div class="readout big"><div class="rlabel">Tu BAR mínimo (piso)</div><div class="rval" id="b_bar">—</div><div class="rsub">nunca vendas por debajo de esto — súbelo según demanda y competencia</div></div>
+            <div class="readout"><div class="rlabel">Costo fijo por noche vendida</div><div class="rval" id="b_fixedcost">—</div></div>
+            <div class="readout"><div class="rlabel">Costo real por noche vendida</div><div class="rval" id="b_totalcost">—</div></div>
+            <div class="readout big"><div class="rlabel">Tu BAR mínimo (piso)</div><div class="rval" id="b_bar">—</div><div class="rsub">nunca vendas por debajo de esto — es tu piso, no tu precio de salida</div></div>
+          </div>
+          <div class="callout" style="margin-top:16px;font-size:14px">
+            <b>Importante:</b> Si todos los hoteleros pusieran precios calculados solo con esta fórmula, se volverían pobres. Estos parámetros sirven para saber <strong>cuánto NO vender</strong> — tu piso, no tu precio de salida. Existen fórmulas más completas que consideran demanda, competencia, temporada, elasticidad de precio y valor percibido. Por eso los consultores cobran caro: requiere interpretación profesional. La <strong>RevDynamicPrice Tool</strong> analiza todos esos factores y te entrega planes tarifarios dinámicos tipo BAR listos para implementar — sin que necesites contratar a nadie para interpretarlos.
+          </div>
+          <div style="margin-top:16px;text-align:center">
+            <a class="btn btn-gold" href="https://www.host-feast.online" target="_blank" rel="noopener">Conocer RevDynamicPrice Tool <span class="arrow">→</span></a>
           </div>
         </div>
       </div>
@@ -396,26 +421,23 @@
   </div>
 </section>
 
-<!-- ===================== FREE TOOLS ===================== -->
+<!-- ===================== HERRAMIENTA ESTRELLA ===================== -->
 <section class="band cream">
   <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow">Herramientas gratuitas · para la comunidad</span>
-      <h2>Además de las calculadoras de arriba, esto es tuyo sin costo.</h2>
-      <p>Sin registro obligatorio, sin humo. Herramientas reales que puedes usar hoy para entender tu negocio antes de tomar cualquier decisión.</p>
-    </div>
-    <div class="tools-grid reveal">
-      <div class="tool">
-        <div class="eyebrow">Diagnóstico</div>
-        <h3>RevDiagnostic Tool</h3>
-        <p>Diagnostica todas tus métricas del período que elijas en menos de 5 minutos, con claridad real de cómo está tu negocio. Versión completa, gratis para la comunidad.</p>
-        <a class="btn btn-gold tool-cta" href="https://revdiagnostic.host-feast.online" target="_blank" rel="noopener">Probar gratis <span class="arrow">→</span></a>
+    <div class="star-banner reveal">
+      <div class="star-eyebrow">01 · Herramienta estrella</div>
+      <h2 class="star-title">RevDynamicPrice Tool</h2>
+      <div class="star-badge">GRATIS por 3 meses con tu Kit Express</div>
+      <p class="star-desc">Creadora de Tarifas Dinámicas para todo tipo de hotel. Mejora tu revenue con tarifas dinámicas BAR (Best Available Rate). Versión V1 incluida gratis por 3 meses con tu Kit Express.</p>
+      <div class="star-tags">
+        <span>Tarifas BAR</span>
+        <span>Precios Dinámicos</span>
+        <span>Revenue Management</span>
+        <span>Automatización</span>
       </div>
-      <div class="tool">
-        <div class="eyebrow">Tu radiografía en 5 min</div>
-        <h3>Empieza por un solo número</h3>
-        <p>Si solo vas a hacer una cosa esta semana: toma tus últimos 3 meses, calcula tu RevPAR con RevDiagnostic y compáralo mes a mes. Ese es el punto de partida de todo lo demás.</p>
-        <a class="btn btn-ghost" style="color:var(--navy);border-color:var(--gold)" href="https://revdiagnostic.host-feast.online" target="_blank" rel="noopener">Ir a RevDiagnostic <span class="arrow">→</span></a>
+      <div class="star-cta-row">
+        <a class="btn btn-gold" href="https://www.host-feast.online" target="_blank" rel="noopener">Quiero mi Kit Express <span class="arrow">→</span></a>
+        <a class="btn btn-ghost" style="color:var(--navy);border-color:var(--gold)" href="https://revdiagnostic.host-feast.online" target="_blank" rel="noopener">Probar RevDiagnostic <span class="arrow">→</span></a>
       </div>
     </div>
   </div>
@@ -462,17 +484,28 @@
 
 <script>
   const MXN = new Intl.NumberFormat('es-MX',{style:'currency',currency:'MXN',maximumFractionDigits:0});
-  const num = id => parseFloat(document.getElementById(id).value) || 0;
+  const num = id => {
+    const v = parseFloat(document.getElementById(id).value);
+    return isNaN(v) ? 0 : v;
+  };
+
+  function clampPercent(id) {
+    const el = document.getElementById(id);
+    let v = parseFloat(el.value);
+    if (isNaN(v)) { el.value = 0; return 0; }
+    if (v > 100) { el.value = 100; return 100; }
+    if (v < 0) { el.value = 0; return 0; }
+    return v;
+  }
 
   // ---- OTA leak ----
   function calcOTA(){
-    const rooms=num('ota_rooms'), adr=num('ota_adr'), occ=num('ota_occ')/100,
-          share=num('ota_share')/100, comm=num('ota_comm')/100;
+    const rooms=num('ota_rooms'), adr=num('ota_adr'), occ=clampPercent('ota_occ')/100,
+          share=clampPercent('ota_share')/100, comm=clampPercent('ota_comm')/100;
     const nights = rooms*30*occ;
     const otaRevenue = nights*adr*share;
     const monthly = otaRevenue*comm;
     const yearly = monthly*12;
-    // recover half of OTA reservations to direct; net gain = commission saved minus 3.5% payment gateway
     const recoverable = (otaRevenue*0.5)*(comm-0.035)*12;
     document.getElementById('ota_month').textContent = MXN.format(monthly);
     document.getElementById('ota_year').textContent  = MXN.format(yearly);
@@ -480,15 +513,19 @@
   }
   ['ota_rooms','ota_adr','ota_occ','ota_share','ota_comm'].forEach(id=>document.getElementById(id).addEventListener('input',calcOTA));
 
-  // ---- BAR ----
+  // ---- BAR (fórmula mejorada con costos variables y ocupación) ----
   function calcBar(){
-    const fixed=num('b_fixed'), rooms=num('b_rooms'), days=num('b_days'), margin=num('b_margin')/100;
-    const perNight = (rooms*days)>0 ? fixed/(rooms*days) : 0;
-    const bar = perNight*(1+margin);
-    document.getElementById('b_cost').textContent = MXN.format(perNight);
+    const fixed=num('b_fixed'), rooms=num('b_rooms'), days=num('b_days'),
+          occ=clampPercent('b_occ')/100, variable=num('b_var'), margin=clampPercent('b_margin')/100;
+    const projectedNights = rooms*days*occ;
+    const fixedPerNight = projectedNights>0 ? fixed/projectedNights : 0;
+    const totalCostPerNight = variable + fixedPerNight;
+    const bar = totalCostPerNight*(1+margin);
+    document.getElementById('b_fixedcost').textContent = MXN.format(fixedPerNight);
+    document.getElementById('b_totalcost').textContent = MXN.format(totalCostPerNight);
     document.getElementById('b_bar').textContent = MXN.format(bar);
   }
-  ['b_fixed','b_rooms','b_days','b_margin'].forEach(id=>document.getElementById(id).addEventListener('input',calcBar));
+  ['b_fixed','b_rooms','b_days','b_occ','b_var','b_margin'].forEach(id=>document.getElementById(id).addEventListener('input',calcBar));
 
   calcOTA(); calcBar();
 
