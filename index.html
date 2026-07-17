@@ -103,6 +103,25 @@
   .callout b{color:var(--ink)}
   .band.light .callout{background:#f3efe4}
 
+  .journey-step{background:var(--cream);border-radius:10px;padding:16px 20px;margin-bottom:10px;border-left:3px solid var(--gold)}
+  .journey-step .step-num{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;color:var(--gold);text-transform:uppercase;margin-bottom:6px}
+  .journey-step .step-title{font-weight:600;color:var(--ink);font-size:15px;margin-bottom:4px}
+  .journey-step .step-desc{font-size:14px;color:var(--ink-soft);line-height:1.6}
+  .journey-step .step-fail{font-size:13px;color:var(--red);margin-top:6px;font-style:italic}
+
+  .wa-example{background:var(--navy);color:var(--cream);border-radius:12px;padding:24px;margin:16px 0;font-size:14px;line-height:1.8}
+  .wa-example .wa-msg{margin-bottom:14px}
+  .wa-example .wa-msg:last-child{margin-bottom:0}
+  .wa-example .wa-who{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:var(--gold);text-transform:uppercase;margin-bottom:4px}
+  .wa-example .wa-text{color:#cbd4dc}
+  .wa-example .wa-time{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);margin-top:2px}
+
+  .infra-block{background:var(--cream);border-radius:10px;padding:18px 20px;margin-bottom:12px}
+  .infra-block .infra-num{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;color:var(--gold);text-transform:uppercase;margin-bottom:6px}
+  .infra-block .infra-title{font-weight:600;color:var(--ink);font-size:15px;margin-bottom:6px}
+  .infra-block .infra-desc{font-size:14px;color:var(--ink-soft);line-height:1.6}
+  .infra-block .infra-meta{font-size:12px;color:var(--muted);margin-top:8px;font-family:'JetBrains Mono',monospace;letter-spacing:.02em}
+
   /* light calculator (on cream/paper) */
   .calc.light{background:#fff;border:1px solid var(--line);box-shadow:0 20px 50px -34px rgba(20,32,43,.4);margin-top:22px}
   .calc.light .calc-head .eyebrow{color:var(--gold)}
@@ -298,40 +317,188 @@
     <div class="pillar reveal">
       <div class="num">02</div>
       <div>
-        <div class="tag">Canal directo · el camino completo</div>
-        <h3>El 20% que le regalas a Booking — y cómo recuperarlo</h3>
-        <p>El canal directo no significa abandonar Booking. Significa recuperar una parte de esas reservas — y el margen completo de cada una. No es un proyecto de un día: tiene tres capas, y el orden importa.</p>
+        <div class="tag">Canal directo · el 35-48% que no le regalas a Booking</div>
+        <h3>De las OTAs al huésped que ya confía en ti</h3>
         
-        <div style="margin-top:20px;display:grid;gap:16px">
-          <div style="background:var(--cream);border-radius:10px;padding:18px 20px;border-left:3px solid var(--gold)">
-            <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;color:var(--gold);text-transform:uppercase;margin-bottom:8px">Capa 1 · Infraestructura (1-3 semanas)</div>
-            <div style="font-size:15px;color:var(--ink-soft);line-height:1.7">
-              <strong>PMS + channel manager</strong> — ya lo tienes si gestionas OTAs. Lo que agrega el canal directo es un <strong>motor de reservas</strong> integrado a tu sitio web y una <strong>pasarela de pago</strong> (Mercado Pago para turismo doméstico, Stripe para internacional). El motor tiene costo fijo mensual — a 150 noches directas al mes, el costo efectivo baja del 2%. Sin motor de reservas, no hay canal directo.
-            </div>
+        <p style="font-size:16px;color:var(--ink);margin-bottom:20px;line-height:1.7">El primer problema del canal directo no es la tecnología. <strong>Es la confianza.</strong></p>
+        
+        <p>Cuando un huésped potencial te encuentra en Google, Instagram o en una reseña de alguien que ya se quedó — ya tomó una decisión. Confía. Y por eso pagará tu tarifa directa sin la protección de Booking.</p>
+        
+        <p>Las OTAs cobran el 18-25% exactamente porque el usuario necesita un intermediario de confianza. Pero cuando llega a ti directo, ese costo desaparece — y la diferencia es tuya.</p>
+        
+        <div class="callout" style="margin:20px 0"><b>Caso real:</b> Casa Nativa arrancó en cero, sin anuncios pagos. Primer mes: 80% reservas directas. Con OTAs activas después de 3 meses: 35% mínimo. En temporada alta: 48%. La diferencia fue tener el equipo capacitado para cerrar.</div>
+        
+        <div style="margin-top:32px">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;color:var(--gold);text-transform:uppercase;margin-bottom:16px">Bloque 1 · Confianza + Tecnología</div>
+          <p style="font-size:15px;color:var(--ink);margin-bottom:16px;line-height:1.7">La mayoría separa dos cosas que son inseparables: "necesito confianza" vs. "necesito tecnología". <strong>Falso.</strong> La confianza se CONSTRUYE con tecnología visible en cada touchpoint.</p>
+          
+          <div style="font-family:'Fraunces',serif;font-size:18px;color:var(--ink);margin:20px 0 16px;font-weight:600">Cómo el usuario viaja desde la desconfianza a la conversión</div>
+          
+          <div class="journey-step">
+            <div class="step-num">Paso 1 · Te descubre en redes</div>
+            <div class="step-desc">Instagram/Facebook configurados profesionalmente, actualizados regularmente. Si tu Instagram parece abandonado, se va.</div>
           </div>
           
-          <div style="background:var(--cream);border-radius:10px;padding:18px 20px;border-left:3px solid var(--gold)">
-            <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;color:var(--gold);text-transform:uppercase;margin-bottom:8px">Capa 2 · Presencia y reputación (inmediato + 3-6 meses)</div>
-            <div style="font-size:15px;color:var(--ink-soft);line-height:1.7">
-              <strong>Google Business Profile</strong> completo — propiedades con perfil completo reciben hasta 2,700% más búsquedas. <strong>Google Hotel Ads</strong> para que tu tarifa directa aparezca junto a las OTAs en los resultados de búsqueda. <strong>Reseñas activas</strong> en Google y TripAdvisor — son la señal de confianza más importante para el huésped que considera reservarte directo. Sin reputación construida, el tráfico no llega ni convierte.
-            </div>
+          <div class="journey-step">
+            <div class="step-num">Paso 2 · Te valida en Google</div>
+            <div class="step-desc">Google Business Profile completo, 4.5+ estrellas, reseñas recientes, Google Hotel Ads activado. Sin perfil completo pierdes 2,700% en búsquedas.</div>
           </div>
           
-          <div style="background:var(--cream);border-radius:10px;padding:18px 20px;border-left:3px solid var(--gold)">
-            <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;color:var(--gold);text-transform:uppercase;margin-bottom:8px">Capa 3 · Cierre (1-2 semanas setup, operación diaria)</div>
-            <div style="font-size:15px;color:var(--ink-soft);line-height:1.7">
-              <strong>WhatsApp Business</strong> (98% de apertura en México) con respuestas rápidas y enlace al motor de reservas. Quien te escribe ya salió de la OTA: responde en menos de 10 minutos, ofrece tu mejor tarifa y cierra. No hay violación de paridad en conversación privada — tienes control total. <strong>Esta es la capa que más se subestima:</strong> puedes tener la mejor tecnología y reputación, pero si nadie en tu propiedad sabe responder, cotizar y cerrar por WhatsApp, el canal directo no despega.
-            </div>
+          <div class="journey-step">
+            <div class="step-num">Paso 3 · Compara precios (entra a tu web o Booking)</div>
+            <div class="step-desc">Web responsiva, velocidad &lt;3 segundos, fotos profesionales de cada habitación. Sin web decente, el 60% se va a Booking sin escribirte.</div>
+          </div>
+          
+          <div class="journey-step">
+            <div class="step-num">Paso 4 · Necesita pagar</div>
+            <div class="step-desc">Payment gateway profesional (Mercado Pago, Stripe) integrado a tu motor de reservas. Un link de transferencia bancaria = fin de la conversión.</div>
+          </div>
+          
+          <div class="journey-step">
+            <div class="step-num">Paso 5 · Hace la reserva</div>
+            <div class="step-desc">Motor de reservas integrado a PMS, confirmación automática, email al instante. Sin motor, tu recepción procesa manualmente cada reserva.</div>
+          </div>
+          
+          <div class="journey-step">
+            <div class="step-num">Paso 6 · Maneja su reserva</div>
+            <div class="step-desc">PMS centralizado, WhatsApp Business integrado, acceso a reservas en tiempo real. Sin PMS, overbooking garantizado.</div>
+          </div>
+          
+          <div class="callout" style="margin-top:20px"><b>¿Por qué el usuario no va a Booking?</b> No va porque las prefiera. Va porque ya llevan tiempo, es más fácil, se ve más profesional, tiene garantías. Las OTAs te OBLIGAN a profesionalizarte. La pregunta es: ¿tu canal directo tiene la misma calificación que Booking te daría?</div>
+        </div>
+        
+        <div style="margin-top:32px">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;color:var(--gold);text-transform:uppercase;margin-bottom:16px">Bloque 2 · Visibilidad + Infraestructura Tecnológica</div>
+          <p style="font-size:15px;color:var(--ink);margin-bottom:16px;line-height:1.7">La confianza no aparece de la nada. El usuario necesita encontrarte en TODOS los lugares donde busca, y necesita que cada lugar esté optimizado profesionalmente.</p>
+          
+          <div class="infra-block">
+            <div class="infra-num">01 · Google My Business</div>
+            <div class="infra-title">Lo primero que ve el usuario cuando busca "hotel en [tu destino]"</div>
+            <div class="infra-desc">Fotos profesionales, perfil 100% completo, Google Hotel Ads habilitado, reseñas activas (objetivo: 4.5+ estrellas). Sin esto: los usuarios no te encuentran. Booking sí aparece.</div>
+            <div class="infra-meta">Timeline: 1 semana setup inicial · Costo: Gratis (requiere tiempo)</div>
+          </div>
+          
+          <div class="infra-block">
+            <div class="infra-num">02 · Web Profesional + Motor de Reservas</div>
+            <div class="infra-title">Cuando el usuario entra a tu sitio, decide en 3 segundos si es legítimo</div>
+            <div class="infra-desc">Diseño responsivo, velocidad &lt;3s, fotos profesionales, motor integrado (calendario visible, disponibilidad en tiempo real), payment gateway profesional. Sin motor integrado al PMS: procesas manualmente, se pierde por overbooking.</div>
+            <div class="infra-meta">Timeline: 2-4 semanas · Costo: $2,000-$8,000 MXN</div>
+          </div>
+          
+          <div class="infra-block">
+            <div class="infra-num">03 · PMS + Channel Manager</div>
+            <div class="infra-title">La infraestructura que hace que todo funcione sin que tu equipo se vuelva loco</div>
+            <div class="infra-desc">PMS que centralice reservas web, OTAs, llamadas, WhatsApp. Channel Manager que sincronice tarifas y disponibilidad en TODAS las plataformas. Integración con payment gateway. Sin esto: tu recepción no sabe qué reservas tiene, overbooking garantizado.</div>
+            <div class="infra-meta">Timeline: 1-2 semanas · Costo: $300-$1,200 MXN/mes</div>
+          </div>
+          
+          <div class="infra-block">
+            <div class="infra-num">04 · WhatsApp Business Integrado a PMS</div>
+            <div class="infra-title">El cierre final: conversación + sistema = conversión</div>
+            <div class="infra-desc">WhatsApp Business (no el personal) integrado con tu PMS (ve disponibilidad en tiempo real), templates de respuesta rápida, acceso desde múltiples dispositivos. Aquí vive el 80% de tus conversiones directo.</div>
+            <div class="infra-meta">Timeline: 3-5 días · Costo: $100-$300 MXN/mes</div>
+          </div>
+          
+          <div class="infra-block">
+            <div class="infra-num">05 · OTAs Bien Configuradas</div>
+            <div class="infra-title">No es competencia, es visibilidad + comparabilidad</div>
+            <div class="infra-desc">Tarifa de OTAs 10-15% MÁS ALTA que tu web directa. OTAs actualizadas en tiempo real vía channel manager. Google Hotel Ads mostrando tu tarifa directa AL LADO de OTAs. Si tu web directa es más barata y está al lado de Booking, se queda contigo.</div>
+            <div class="infra-meta">Timeline: Inmediato (ajuste tarifario) · Costo: Comisiones que ya pagas</div>
           </div>
         </div>
         
-        <div class="callout" style="margin-top:16px"><b>El truco del channel manager que pocos aplican:</b> carga las tarifas de OTAs 10-15% por encima de tu tarifa web directa. Tu web es la más barata, cumples paridad, y el huésped que compara tiene incentivo real para reservarte directo.</div>
-        
-        <div style="margin-top:16px;font-size:14px;color:var(--ink-soft);line-height:1.7">
-          <strong>Timeline realista:</strong> Mes 1 = infraestructura operativa y primera reserva directa. Mes 2-3 = optimización de tarifas y primeras reseñas. Mes 4-6 = crecimiento activo del canal con base de contactos y programa de referidos. Objetivo a 12 meses: 40-60% de reservas directas.
+        <div style="margin-top:32px">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;color:var(--gold);text-transform:uppercase;margin-bottom:16px">Bloque 3 · Conversión</div>
+          <p style="font-size:15px;color:var(--ink);margin-bottom:16px;line-height:1.7">Has configurado Google, web, motor, payment, PMS. Todo está listo. Un huésped llega a tu WhatsApp: "Hola, ¿cuánto cuesta una doble la semana del 15?". Tiene 5 minutos. Está comparando precios. Tu equipo sabe EXACTAMENTE qué responder.</p>
+          
+          <div style="font-family:'Fraunces',serif;font-size:18px;color:var(--ink);margin:20px 0 16px;font-weight:600">El flujo de conversión (lo que tu recepción hace)</div>
+          
+          <div class="journey-step">
+            <div class="step-num">Paso 1 · Filtrar</div>
+            <div class="step-desc">¿Es huésped real o bot? ¿Quiere información o quiere reservar? Respuesta clara: "Hola [nombre], gracias por escribir. ¿Qué fechas tienes en mente?"</div>
+          </div>
+          
+          <div class="journey-step">
+            <div class="step-num">Paso 2 · Cotizar</div>
+            <div class="step-desc">Tu mejor tarifa, no la estándar. Tarifa web directa = 10-15% por debajo de Booking/Expedia. "Te dejo mi mejor tarifa directo: $XXX por noche (Booking cobra $XXX)". No violas paridad porque es conversación privada.</div>
+          </div>
+          
+          <div class="journey-step">
+            <div class="step-num">Paso 3 · Cerrar</div>
+            <div class="step-desc">Enlace directo al motor de reservas o WhatsApp para confirmar. "¿Te dejo tu habitación? Pago aquí mismo o si prefieres, yo confirmo." Bajo fricción, respuesta rápida.</div>
+          </div>
+          
+          <div class="journey-step">
+            <div class="step-num">Paso 4 · Post-venta</div>
+            <div class="step-desc">Confirmar 48 horas antes, recibimiento personalizado, pedir reseña después, invitar a referir. El mejor marketing es el huésped satisfecho.</div>
+          </div>
+          
+          <div class="wa-example">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;color:var(--gold);text-transform:uppercase;margin-bottom:16px">Ejemplo práctico: Flujo real de WhatsApp</div>
+            
+            <div class="wa-msg">
+              <div class="wa-who">Huésped</div>
+              <div class="wa-text">"Hola, ¿cuánto cuesta una doble la semana del 15 al 20 de agosto?"</div>
+            </div>
+            
+            <div class="wa-msg">
+              <div class="wa-who">Tu respuesta (Minuto 2)</div>
+              <div class="wa-text">"Hola María 👋 Perfecto, agosto es temporada alta aquí. Te dejo las opciones:<br>• Habitación Doble Standard: $1,200/noche (Booking cobra $1,450)<br>• Suite con vista: $1,600/noche (Booking cobra $1,950)<br>¿Cuál te late? Puedo dejarte reservado ahora mismo."</div>
+            </div>
+            
+            <div class="wa-msg">
+              <div class="wa-who">Huésped</div>
+              <div class="wa-text">"La doble standard, pero ¿qué me garantiza que es seguro?"</div>
+            </div>
+            
+            <div class="wa-msg">
+              <div class="wa-who">Tu respuesta (Minuto 5)</div>
+              <div class="wa-text">"Excelente pregunta. Yo soy [Nombre], gerente de Casa Nativa. Aquí funcionamos directo porque queremos que nos conozcas antes de pagar. Te paso mi perfil de Google [link]: 4.8 estrellas en 150+ reseñas. Y tienes mi WhatsApp directo. Si algo sale mal, me escribes y lo arreglamos aquí. ¿Te reservo para el 15-20?"</div>
+            </div>
+            
+            <div class="wa-msg">
+              <div class="wa-who">Huésped</div>
+              <div class="wa-text">"Dale, adelante."</div>
+            </div>
+            
+            <div class="wa-msg">
+              <div class="wa-who">Tu respuesta (Minuto 8)</div>
+              <div class="wa-text">"Perfecto María ✅<br>Tu reserva está confirmada:<br>• Habitación Doble Standard<br>• 15-20 agosto (5 noches)<br>• Total: $6,000<br>Pago aquí [link de pasarela] o si prefieres, yo giro un link de pago.<br>Te llamo 48 horas antes para confirmar llegada. ¡Bienvenida!"</div>
+              <div class="wa-time">Total del ciclo: 8 minutos. Conversión cerrada.</div>
+            </div>
+          </div>
+          
+          <div class="callout" style="margin-top:20px"><b>La pieza que nadie aplica:</b> No es SOLO el motor de reservas. No es SOLO Google Hotels. Es que TODOS estos elementos trabajan juntos: web profesional, Google Business, PMS integrado, payment seguro, equipo capacitado. Si tu recepción está capacitada pero NO tiene PMS integrado = lentitud, confusión, pierde clientes. Si tiene PMS pero tu equipo NO está capacitado = tecnología sin cierre. Ambos necesitan existir.</div>
         </div>
         
-        <p style="font-size:14px;color:var(--muted);margin-top:12px">↑ Usa la calculadora del inicio para ver tu número exacto de comisiones y cuánto puedes recuperar.</p>
+        <div style="margin-top:32px">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;color:var(--gold);text-transform:uppercase;margin-bottom:16px">Bloque 4 · Operación</div>
+          <p style="font-size:15px;color:var(--ink);margin-bottom:16px;line-height:1.7">El primer mes llega gente directo (80% en Casa Nativa). A los 3 meses, las OTAs suben (normalización). A los 12 meses, si mantuviste disciplina, estás en 35-48%.</p>
+          
+          <div style="background:var(--cream);border-radius:10px;padding:20px;margin-top:16px">
+            <div style="font-weight:600;color:var(--ink);font-size:15px;margin-bottom:12px">Cómo se mantiene:</div>
+            <div style="font-size:14px;color:var(--ink-soft);line-height:1.8">
+              <strong>01.</strong> Base de contactos que crece — cada huésped directo entra en tu CRM. Repeat guest = reserva directa garantizada. A los 12 meses tienes 300-500 contactos que te prefieren directo.<br>
+              <strong>02.</strong> Tarifa dinámica según demanda — temporada alta: tarifa estándar. Temporada media: descuento anticipado. Última hora (48h): llena huecos sin sacrificar margen.<br>
+              <strong>03.</strong> Operación sin fricción — recepción capacitada (se entrena en mes 1, se perfecciona en mes 3-6). Sistema de respuesta automatizada para cuando no hay nadie.<br>
+              <strong>04.</strong> Métricas que importan — % de canal directo vs total (meta: 35-48%), ADR directo vs OTA (debe ser 10-15% mejor), tiempo de respuesta (meta: &lt;10 min), tasa de conversión WhatsApp (meta: 60%+).
+            </div>
+          </div>
+          
+          <div style="background:var(--cream);border-radius:10px;padding:20px;margin-top:16px">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;color:var(--gold);text-transform:uppercase;margin-bottom:10px">Timeline realista</div>
+            <div style="font-size:14px;color:var(--ink-soft);line-height:1.8">
+              <strong>Mes 1-2:</strong> Infraestructura + primeras directas (15-20%)<br>
+              <strong>Mes 3-4:</strong> Optimización + reputación (25-30%)<br>
+              <strong>Mes 5-6:</strong> Growth activo de base de contactos (35-40%)<br>
+              <strong>Mes 7-12:</strong> Mejora continuada hacia 48%
+            </div>
+          </div>
+          
+          <p style="font-size:14px;color:var(--ink-soft);margin-top:16px;line-height:1.7">El reto no es dejar de depender de OTAs (porque sí dan visualización y alcance). El reto es incrementar el % de directo hasta que sea tu canal más rentable. Y mantenerlo.</p>
+        </div>
+        
+        <p style="font-size:14px;color:var(--muted);margin-top:20px">↑ Usa la calculadora del inicio para ver tu número exacto de comisiones y cuánto puedes recuperar moviendo solo el 35% al canal directo.</p>
       </div>
     </div>
 
@@ -350,6 +517,8 @@
           <span class="g">BAR mínimo</span> = costo total × (1 + margen)
         </div>
         <div class="callout" style="margin-top:16px"><b>Tus costos bajos no son tu techo — son tu ventaja.</b> El precio lo define el mercado (tu compset, la demanda, tu experiencia), no tu estructura de gastos.</div>
+        
+        <p style="font-size:14px;color:var(--ink-soft);margin-top:12px;line-height:1.7"><strong>Conexión con canal directo:</strong> Tu tarifa web siempre va 10-15% por debajo de OTAs (ver Sección 02). Eso es tu incentivo visible. El BAR mínimo protege ambos canales.</p>
         
         <div style="margin-top:20px">
           <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;margin-bottom:12px">Los 4 tipos de tarifa que toda propiedad debe tener activos:</div>
@@ -467,6 +636,8 @@
         </div>
         
         <div class="callout" style="margin-top:16px"><b>No necesitas pagar $180,000 por un manual operativo.</b> Los consultores venden documentos genéricos que nadie usa. Tú puedes crear los tuyos en una tarde — lo importante no es el documento, es que el equipo lo adopte.</div>
+        
+        <p style="font-size:14px;color:var(--ink-soft);margin-top:12px;line-height:1.7"><strong>Ver Sección 02 · Conversión</strong> para el SOP específico de WhatsApp y el flujo completo de cierre.</p>
       </div>
     </div>
 
@@ -484,9 +655,10 @@
       <p style="color:var(--ink-soft);margin-bottom:16px;line-height:1.7">Eso me dolía escuchar. Porque el problema no era el manual — era que nadie les explicó para qué sirve ni cómo hacer que el equipo lo adopte. Les vendieron un documento, no un sistema.</p>
       <p style="color:var(--ink-soft);margin-bottom:16px;line-height:1.7">Pasé meses desarrollando el Kit Hotelero Express con una sola pregunta en mente: <strong>¿cómo le doy al operador independiente las mismas herramientas que funcionan en consultoría personalizada, en un formato que pueda aplicar desde el día uno, sin que le cueste lo que no tiene?</strong></p>
       <p style="color:var(--ink-soft);margin-bottom:24px;line-height:1.7">El resultado es lo que tienes en tus manos: diagnóstico, canal directo, operación, pricing y planificación base — todo en un kit que podría venderse en cientos de dólares y que hoy, en precio de introducción, cuesta menos de lo que rentas una noche de habitación.</p>
+      <p style="color:var(--ink-soft);margin-bottom:24px;line-height:1.7"><strong>Casa Nativa implementó los principios del Kit en mes 1 y llegó a 48% en mes 12.</strong> Sin consultor. Sin esperar. Aplicando.</p>
       <p style="color:var(--ink-soft);margin-bottom:24px;line-height:1.7"><strong>Este precio está activo desde que abriste esta guía. No sé hasta cuándo — lo que sí sé es que cuando lo ajuste, va a costar bastante más.</strong></p>
       <a class="btn btn-gold" href="https://www.host-feast.online" target="_blank" rel="noopener">Quiero mi Kit Hotelero Express <span class="arrow">→</span></a>
-      <p style="font-size:14px;color:var(--muted);margin-top:20px;line-height:1.6">¿Tienes preguntas antes de decidir? <a href="https://wa.me/529511791841" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:underline">Escríbenos por WhatsApp →</a></p>
+      <p style="font-size:14px;color:var(--muted);margin-top:20px;line-height:1.6">¿Dudas sobre cómo implementar el canal directo en tu propiedad? <a href="https://wa.me/529511791841" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:underline">Pregúntale a Luis directo por WhatsApp. Responde en &lt;10 minutos →</a></p>
     </div>
   </div>
 </section>
@@ -501,7 +673,7 @@
 
       <div class="kit-list">
         <div class="ki"><span class="kt">01 · MÉTRICAS</span><span class="kd"><b>RevDiagnostic Tool</b> — diagnostica ADR, RevPAR y GOP en menos de 5 minutos</span></div>
-        <div class="ki"><span class="kt">02 · CANAL</span><span class="kd"><b>Guía Canal Directo Rentable</b> — el paso a paso para dejar de regalar el 20%</span></div>
+        <div class="ki"><span class="kt">02 · CANAL</span><span class="kd"><b>Guía Canal Directo Rentable</b> — de las OTAs al 35-48% que es tuyo (confianza, visibilidad, conversión, operación)</span></div>
         <div class="ki"><span class="kt">03 · PRECIOS</span><span class="kd"><b>RevDynamicPrice Tool</b> — tu sistema de pricing dinámico sin consultor</span></div>
         <div class="ki"><span class="kt">04 · OPERACIÓN</span><span class="kd"><b>Manual Operativo Estándar</b> — procedimientos listos para implementar</span></div>
         <div class="ki"><span class="kt">BASE</span><span class="kd"><b>El Mapa Perfecto</b> — los 6 pasos para estructurar tu hotel desde la base correcta</span></div>
