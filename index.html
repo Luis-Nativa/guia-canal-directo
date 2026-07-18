@@ -8,6 +8,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2C0RKWWCHE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2C0RKWWCHE');
+</script>
 <style>
   :root{
     --navy:#0C2233; --navy-deep:#081521; --navy-card:#11263a;
@@ -762,6 +770,65 @@
     entries.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
   },{threshold:.12});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // ---- Google Analytics Events ----
+  // Scroll depth tracking
+  const scrollMarks = {25:false, 50:false, 75:false, 100:false};
+  window.addEventListener('scroll', () => {
+    const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+    for (const mark of [25, 50, 75, 100]) {
+      if (scrolled >= mark && !scrollMarks[mark]) {
+        scrollMarks[mark] = true;
+        gtag('event', 'scroll_depth', { percent: mark });
+      }
+    }
+  });
+
+  // CTA click tracking
+  document.querySelectorAll('a[href*="host-feast.online"], a[href*="wa.me"], a[href*="revdiagnostic"]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      const href = e.currentTarget.getAttribute('href');
+      let eventName = 'cta_click';
+      if (href.includes('host-feast.online') && e.currentTarget.textContent.includes('Kit')) eventName = 'cta_kit_click';
+      else if (href.includes('wa.me')) eventName = 'whatsapp_click';
+      else if (href.includes('revdiagnostic')) eventName = 'revdiagnostic_click';
+      else if (href.includes('host-feast.online') && e.currentTarget.textContent.includes('RevDynamicPrice')) eventName = 'revdynamicprice_click';
+      gtag('event', eventName, { link_text: e.currentTarget.textContent.trim().substring(0, 50) });
+    });
+  });
+
+  // Calculator interaction tracking
+  let otaInteracted = false, barInteracted = false;
+  ['ota_rooms','ota_adr','ota_occ','ota_share','ota_comm'].forEach(id => {
+    document.getElementById(id).addEventListener('input', () => {
+      if (!otaInteracted) {
+        otaInteracted = true;
+        gtag('event', 'calculator_ota_use');
+      }
+    });
+  });
+  ['b_fixed','b_rooms','b_days','b_occ','b_var','b_margin'].forEach(id => {
+    document.getElementById(id).addEventListener('input', () => {
+      if (!barInteracted) {
+        barInteracted = true;
+        gtag('event', 'calculator_bar_use');
+      }
+    });
+  });
+
+  // Section view tracking
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const sectionNum = entry.target.querySelector('.num')?.textContent;
+        const sectionTag = entry.target.querySelector('.tag')?.textContent;
+        if (sectionNum) {
+          gtag('event', 'section_view', { section: sectionNum, tag: sectionTag || '' });
+        }
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('.pillar').forEach(pillar => sectionObserver.observe(pillar));
 </script>
 </body>
 </html>
